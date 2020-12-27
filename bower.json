@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "codemirror": "~5.6.0",
-    "payshares-sdk": "0.2.16",
+    "payshares-sdk": "git://github.com/payshares/js-payshares-sdk.git",
     "tether-drop": "drop#^1.4.2"
   }
 }

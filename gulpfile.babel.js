@@ -67,7 +67,8 @@ gulp.task('serve', () => {
     .pipe($g.webserver({
       livereload: true,
       open: "index.html",
-      host: '0.0.0.0'
+      host: '0.0.0.0',
+      port: '8300'
     }));
 });
 
