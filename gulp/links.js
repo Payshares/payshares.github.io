@@ -65,13 +65,13 @@ function rootRelativeToGithub($, elem, f, p) {
 
 // Identifies a URL for a dev portal page and matches a group for the path
 const DEVPORTAL_URL =
-  /^http(?:s)?:\/\/(?:www\.)?stellar.org\/developers\/?(.*)$/;
+  /^http(?:s)?:\/\/(?:www\.)?payshares.org\/developers\/?(.*)$/;
 
 /**
  * Convert links to dev portal pages (used when linking to a doc whose
  * canonical version lives in another repo, e.g. a Horizon reference page
- * linking to a Stellar-Core reference page) to be relative.
- * e.g. "https://stellar.org/developers/whatever" -> "/whatever"
+ * linking to a Payshares-Core reference page) to be relative.
+ * e.g. "https://payshares.org/developers/whatever" -> "/whatever"
  * @param {CheerioDocument} $
  * @param {HTMLAnchorElement} element
  * @param {MetalsmithFile} file

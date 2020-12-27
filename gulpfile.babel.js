@@ -50,7 +50,7 @@ gulp.task('js:copy-vendor', function() {
     './bower_components/codemirror/mode/clike/clike.js',
     './bower_components/codemirror/mode/go/go.js',
     './bower_components/codemirror/mode/toml/toml.js',
-    './bower_components/stellar-sdk/stellar-sdk.min.js',
+    './bower_components/payshares-sdk/payshares-sdk.min.js',
     './bower_components/tether/dist/js/tether.min.js',
     './bower_components/tether-drop/dist/js/drop.min.js',
   ])
@@ -221,7 +221,7 @@ function build({clean = false, incremental = false, debug = !!argv.debug}, done)
 // Example design
 //
 // Each project that provides examples for horizon's endpoints will define a folder such as
-// js-stellar-sdk/docs/horizon-examples/all-accounts.js
+// js-payshares-sdk/docs/horizon-examples/all-accounts.js
 //
 // the filename will be used for determining an examples file type
 // metalsmith will be used to populate a metadata field with all examples, indexed by endpoint name

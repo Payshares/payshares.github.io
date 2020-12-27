@@ -65,7 +65,7 @@ function addProject(file, filePath) {
 }
 
 function addFullTitle(file, filePath) {
-  let titleSuffix = ' | Stellar Developers';
+  let titleSuffix = ' | Payshares Developers';
 
   if (!file.projectTitle || file.repo === 'docs') {
     file.fullTitle = file.title + titleSuffix;
@@ -93,7 +93,7 @@ function addSection(file, filePath) {
         return;
       }
       // if not one of the above cases, then we are dealing with a project-specific
-      // file (i.e. js-stellar-sdk).  In this case, we determine layout
+      // file (i.e. js-payshares-sdk).  In this case, we determine layout
       // based upon the nesting undernearth the project name.
       file.section = parts[1];
       break;

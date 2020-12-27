@@ -12,7 +12,7 @@
   "globals": {
     "clientData": true,
     "CodeMirror": true,
-    "StellarSdk": true,
+    "PaysharesSdk": true,
     "syntaxHighlight": true
   }
 }

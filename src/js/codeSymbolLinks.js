@@ -60,7 +60,7 @@
   }
 
   function linkSymbols(element, symbols) {
-    $('.cm-variable:contains("StellarSdk") + .cm-property', element).each(function(index, propertyElement) {
+    $('.cm-variable:contains("PaysharesSdk") + .cm-property', element).each(function(index, propertyElement) {
       var symbolName = $.trim(propertyElement.textContent);
       var candidates = symbols[symbolName];
 
@@ -71,7 +71,7 @@
       replaceWithLink(propertyElement, symbol);
 
       // this is a little messy, but we want to link the next one, too, e.g:
-      // StellarSdk.Keypair.fromSeed <- link both `Keypair` and `fromSeed`
+      // PaysharesSdk.Keypair.fromSeed <- link both `Keypair` and `fromSeed`
       var nextProperty = $(propertyElement).next('.cm-property')[0];
       if (!nextProperty) return;
       var nextName = $.trim(nextProperty.textContent);

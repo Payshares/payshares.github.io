@@ -20,7 +20,7 @@
     "markdown-it-anchor": "^2.5.0",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-implicit-figures": "^0.3.2",
-    "metalsmith": "git+https://github.com/stellar/metalsmith.git",
+    "metalsmith": "git+https://github.com/payshares/metalsmith.git",
     "metalsmith-autoprefixer": "^1.1.0",
     "metalsmith-changed": "^2.0.0",
     "metalsmith-concat": "^3.0.3",
@@ -32,9 +32,9 @@
     "metalsmith-sass": "^1.3.0",
     "minimatch": "^2.0.10",
     "minimist": "^1.2.0",
-    "solar-css": "git+https://github.com/stellar/solar#master",
-    "solar-stellarorg": "git+https://github.com/stellar/solar-stellarorg#master",
-    "solar-stellarorg-pages": "git+https://github.com/stellar/solar-stellarorg-pages#master"
+    "solar-css": "git+https://github.com/payshares/solar#master",
+    "solar-paysharesorg": "git+https://github.com/payshares/solar-paysharesorg#master",
+    "solar-paysharesorg-pages": "git+https://github.com/payshares/solar-paysharesorg-pages#master"
   },
   "devDependencies": {
     "eslint": "^3.3.1",

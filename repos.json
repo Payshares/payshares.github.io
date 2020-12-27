@@ -1,25 +1,25 @@
 {
   "docs" : {
-    "githubURL": "https://github.com/stellar/docs"
+    "githubURL": "https://github.com/payshares/docs"
   },
-  "stellar-core" : {
-    "githubURL": "https://github.com/stellar/stellar-core",
-    "projectTitle": "Stellar Core"
+  "payshares-core" : {
+    "githubURL": "https://github.com/payshares/payshares-core",
+    "projectTitle": "Payshares Core"
   },
-  "interstellar" : {
-    "githubURL": "https://github.com/stellar/interstellar",
-    "projectTitle": "Interstellar"
+  "interpayshares" : {
+    "githubURL": "https://github.com/payshares/interpayshares",
+    "projectTitle": "Interpayshares"
   },
-  "js-stellar-base" : {
-    "githubURL": "https://github.com/stellar/js-stellar-base",
-    "projectTitle": "JS Stellar Base"
+  "js-payshares-base" : {
+    "githubURL": "https://github.com/payshares/js-payshares-base",
+    "projectTitle": "JS Payshares Base"
   },
-  "js-stellar-sdk" : {
-    "githubURL": "https://github.com/stellar/js-stellar-sdk",
-    "projectTitle": "JS Stellar SDK"
+  "js-payshares-sdk" : {
+    "githubURL": "https://github.com/payshares/js-payshares-sdk",
+    "projectTitle": "JS Payshares SDK"
   },
   "go" : {
-    "githubURL": "https://github.com/stellar/go",
+    "githubURL": "https://github.com/payshares/go",
     "projectTitle": "Go SDK"
   }
 }

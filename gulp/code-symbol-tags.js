@@ -1,5 +1,5 @@
 /**
- * Generate JSON summaries of symbols from Stellar SDKs for use when syntax
+ * Generate JSON summaries of symbols from Payshares SDKs for use when syntax
  * highlighting code samples in documentation.
  *
  * TODO: other SDKs besides JS
@@ -10,24 +10,24 @@
 import child_process from 'child_process';
 import cheerio from 'cheerio';
 
-const DOCUMENTATION_URL = 'https://stellar.github.io/js-stellar-sdk/';
+const DOCUMENTATION_URL = 'https://payshares.github.io/js-payshares-sdk/';
 
 export function javascriptSymbols(callback) {
   let output = '';
   let error = '';
 
-  // npm install in js-stellar-sdk
-  child_process.spawnSync('npm', ['install'], {cwd: './repos/js-stellar-sdk/'});
+  // npm install in js-payshares-sdk
+  child_process.spawnSync('npm', ['install'], {cwd: './repos/js-payshares-sdk/'});
 
   const jsDoc = child_process.spawn(
-    // Executed in './repos/js-stellar-sdk/'
+    // Executed in './repos/js-payshares-sdk/'
     '../../node_modules/.bin/jsdoc',
     [
       '-c', '.jsdoc.json',
       '--explain' // output doclet JSON instead of templated web site
     ],
     {
-      cwd: './repos/js-stellar-sdk/'
+      cwd: './repos/js-payshares-sdk/'
     });
 
   jsDoc.stdout.on('data', data => output += data);

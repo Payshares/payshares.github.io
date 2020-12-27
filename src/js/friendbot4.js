@@ -4,7 +4,7 @@
   $('.js-friendbot4').each(function() {
     var $fb4 = $(this);
     var CONFIG = {
-      horizonUri: 'https://horizon-testnet.stellar.org' // no trailing slash
+      horizonUri: 'https://horizon-testnet.payshares.org' // no trailing slash
     };
 
     // initial state template
@@ -69,7 +69,7 @@
 
     // Step 1
     $fb4.find('.js-friendbot4-step1-generate').on('click', function() {
-      var keypair = StellarSdk.Keypair.random();
+      var keypair = PaysharesSdk.Keypair.random();
       state.keypair.seed = keypair.seed();
       state.keypair.address = keypair.address();
       state.maxStep = 2;
@@ -95,7 +95,7 @@
       render();
 
       $.ajax({
-        url: 'https://horizon-testnet.stellar.org/friendbot?addr=' + requestAddress,
+        url: 'https://horizon-testnet.payshares.org/friendbot?addr=' + requestAddress,
       })
       .fail(function (data) {
         if (typeof data === 'undefined') {
@@ -109,7 +109,7 @@
         render();
       })
       .done(function(data) {
-        state.step2.friendbotStatus = 'Lumens have arrived!';
+        state.step2.friendbotStatus = 'Stakks have arrived!';
         state.maxStep = 3;
         render();
       });

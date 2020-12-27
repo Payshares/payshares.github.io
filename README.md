@@ -1,5 +1,5 @@
-# Stellar Developers
-Stellar developer portal site generator.
+# Payshares Developers
+Payshares developer portal site generator.
 
 This uses gulp and metalsmith (plus a heap of plugins) to generate the site.
 
@@ -13,7 +13,7 @@ To build this project, you must have the following dependencies installed:
 
 ## Installation
 ```bash
-git clone https://github.com/stellar/developers # or git@github.com:stellar/developers.git
+git clone https://github.com/payshares/developers # or git@github.com:payshares/developers.git
 npm install --no-shrinkwrap
 bower install
 ```
@@ -52,7 +52,7 @@ node_modules/.bin/gulp watch serve
 
 This will also automatically rebuild the site when edits are made. (To serve without rebuilding, drop the `watch` argument.)
 
-By default, the site is served under the developers/ subfolder. This is to reduce the amount of bugs when this site is deployed to https://www.stellar.org/developers/. This can be changed by passing a custom baseUrl to the gulp build task like so: `gulp --baseUrl="/"` or `gulp build --baseUrl="/"`.
+By default, the site is served under the developers/ subfolder. This is to reduce the amount of bugs when this site is deployed to https://www.payshares.org/developers/. This can be changed by passing a custom baseUrl to the gulp build task like so: `gulp --baseUrl="/"` or `gulp build --baseUrl="/"`.
 
 When working on the site, you can also use the `--debug` option to generate output that is easier to debug in the browser (it includes things like sourcemaps).
 
@@ -68,7 +68,7 @@ To add a new browser JS file, add it to [`src/js`](/src/js/) and update the meta
 
 ### Writing Examples
 
-The developer portal for stellar includes a system for displaying code-samples alongside the documentation for horizon endpoints. To recognize and process these examples, you must write them in a particular way:
+The developer portal for payshares includes a system for displaying code-samples alongside the documentation for horizon endpoints. To recognize and process these examples, you must write them in a particular way:
 
 1.  Any markdown (.md) file in a project that has a path prefix of `/docs/horizon-examples` will be considered to be an example file.
 2.  The example file must include a `language` attribute in it's front matter.  Valid values for this attribute are `curl`, `ruby`, `javascript`, and `go`

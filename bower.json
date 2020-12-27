@@ -1,9 +1,9 @@
 {
   "name": "developers",
   "version": "0.0.0",
-  "homepage": "https://github.com/stellar/developers",
+  "homepage": "https://github.com/payshares/developers",
   "authors": [
-    "Iris Li <iris@stellar.org> (https://www.stellar.org/)"
+    "Iris Li <iris@payshares.org> (https://www.payshares.org/)"
   ],
   "license": "Apache-2.0",
   "ignore": [
@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "codemirror": "~5.6.0",
-    "stellar-sdk": "0.2.16",
+    "payshares-sdk": "0.2.16",
     "tether-drop": "drop#^1.4.2"
   }
 }
