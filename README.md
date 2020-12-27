@@ -7,7 +7,7 @@ This uses gulp and metalsmith (plus a heap of plugins) to generate the site.
 
 To build this project, you must have the following dependencies installed:
 
-- node 4.0.0
+- node 8.17.0
 - npm
 - bower
 
