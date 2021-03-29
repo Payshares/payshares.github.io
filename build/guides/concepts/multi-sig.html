@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Multisignature | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Multisignature | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item is-currentItem" href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item " href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Get Started</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/get-started/index.html">Payshares Network Overview</a></li>
+          <li class="pageNavList__item"><a href="/guides/get-started/create-account.html">Create an Account</a></li>
+  <li class="pageNavList__item"><a href="/guides/get-started/transactions.html">Send and Receive Money</a></li>
+
+        </ol>
+      </li>
+    
+
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Become an Anchor</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/anchor/index.html">Architecture</a></li>
+          <li class="pageNavList__item"><a href="/guides/anchor/2-bridge-server.html">Bridge Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/3-federation-server.html">Federation Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/4-compliance-server.html">Compliance Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/5-conclusion.html">Next Steps</a></li>
+
+        </ol>
+      </li>
+    
+      
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Concepts</span>
+        <ul class="collapsibleListSet__list">
+              <li class="pageNavList__item"><a href="/guides/concepts/accounts.html">Accounts</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/assets.html">Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/exchange.html">Distributed Exchange</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/federation.html">Federation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/fees.html">Fees</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/inflation.html">Inflation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/ledger.html">Ledger</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/list-of-operations.html">List of Operations</a></li>
+  <li class="pageNavList__item is-currentItem"><a href="/guides/concepts/multi-sig.html">Multisignature</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/operations.html">Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/scp.html">Payshares Consensus Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/stellar-toml.html">Payshares.toml</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/test-net.html">Testnet</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/transactions.html">Transactions</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/versioning.html">Versioning and Upgrading</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/xdr.html">XDR</a></li>
+
+        </ul>
+      </li>
+    
+        <li class="pageNavList__item"><a href="/guides/attachment.html">Payshares Attachment Convention</a></li>
+  <li class="pageNavList__item"><a href="/guides/channels.html">Channels</a></li>
+  <li class="pageNavList__item"><a href="/guides/compliance-protocol.html">Compliance Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/issuing-assets.html">Issuing Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/security.html">Security</a></li>
+  <li class="pageNavList__item"><a href="/guides/things-to-build.html">Build Payshares Apps</a></li>
+        <li class="pageNavList__item"><a href="/guides/contributing.html">Contribution Guide</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Multisignature
+      
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <h2 id="transaction-signatures"><a class="anchorShortcut" href="#transaction-signatures" aria-hidden="true"></a> Transaction signatures</h2>
+<p>Payshares uses <strong>signatures</strong> as authorization. Transactions always need authorization from at least one public key in order
+to be considered valid. Generally, transactions only need authorization from the public key of the source account.</p>
+<p>Transaction signatures are created by cryptographically signing the transaction object contents with a secret key. Payshares
+currently uses the ed25519 signature scheme, but there&#x2019;s also a mechanism for adding additional types of public/private
+key schemes. A transaction with an attached signature is considered to have authorization from that public key.</p>
+<p>In two cases, a transaction may need more than one signature. If the transaction has operations that affect more than one
+account, it will need authorization from every account in question. A transaction will also need additional signatures if
+the account associated with the transaction has multiple public keys. For examples, see the <a href="./operations.html#examples">operations guide</a>.</p>
+<h2 id="thresholds"><a class="anchorShortcut" href="#thresholds" aria-hidden="true"></a> Thresholds</h2>
+<p><a href="./operations.html">Operations</a> fall under a specific threshold category: low, medium, or high.
+The threshold for a given level can be set to any number from 0-255. This threshold is the amount of signature weight required to authorize an operation at that level.</p>
+<p>Let&#x2019;s say Diyang sets the medium threshold on one of her accounts to 4. If that account submits a transaction that includes a payment operation (medium security), the transaction&#x2019;s threshold is 4&#x2013;the signature weights on it need to be greater than or equal to 4 in order to run. If Diyang&#x2019;s master key&#x2013;the key corresponding to the public key that identifies the account she owns&#x2013;has a weight less than 4, she cannot authorize a transaction without other signers.</p>
+<p>Each account can set its own threshold values. By default all thresholds levels are set to 0, and the master key is set to weight 1. The <a href="./list-of-operations.html#set-options">Set Options</a> operation allows you to change the weight of the master key and to add other signing keys with different weights.</p>
+<p>Low Security:</p>
+<ul>
+<li><a href="./list-of-operations.html#allow-trust">Allow Trust</a> operation</li>
+<li>Used to allow people to hold credit from this account without exposing the key that enables sending payments from this account.</li>
+</ul>
+<p>Medium Security:</p>
+<ul>
+<li>All other operations</li>
+</ul>
+<p>High Security:</p>
+<ul>
+<li><a href="./list-of-operations.html#set-options">Set Options</a> to change the signers or the thresholds</li>
+<li>Allows you to create a set of signers that give or revoke access to the account.</li>
+</ul>
+<h2 id="additional-signing-keys"><a class="anchorShortcut" href="#additional-signing-keys" aria-hidden="true"></a> Additional signing keys</h2>
+<p>Accounts are identified by a public key. The private key that corresponds to this public key is called the <strong>master key</strong>. Additional signing keys can be added to the account using the <a href="./list-of-operations.html#set-options">Set Options</a> operation.</p>
+<p>If the weight of the master key is ever updated to 0, the master key is considered to be an invalid key and you cannot sign any transactions with it (even for operations with a threshold value of 0). If there are other signers listed on the account, they can still continue to sign transactions.</p>
+<p>&#x201C;Signers&#x201D; refers to the master key or to any signing keys added later. A signer is defined as the pair: public key, weight.</p>
+<p>Each additional signer beyond the master key increases the account&#x2019;s <a href="./fees.html#minimum-account-balance">minimum balance</a>.</p>
+<h2 id="alternate-signature-types"><a class="anchorShortcut" href="#alternate-signature-types" aria-hidden="true"></a> Alternate Signature Types</h2>
+<p>To enable some advanced smart contract features there are a couple of additional signature types. These signature types also have weights and can be added and removed similarly to normal signature types. But rather than check a cryptographic signature for authorization they have a different method of proving validity to the network.</p>
+<h3 id="pre-authorized-transaction"><a class="anchorShortcut" href="#pre-authorized-transaction" aria-hidden="true"></a> Pre-authorized Transaction</h3>
+<p>It is possible for an account to pre-authorize a particular transaction by adding the hash of the future transaction as a &#x201C;signer&#x201D; on the account. To do that you need to prepare the transaction beforehand with proper sequence number. Then you can obtain the hash of this transaction and add it as signer to account.</p>
+<p>Signers of this type are automatically removed from the account when a matching transaction is properly applied. In case of error, or when matching transaction is never submitted, the signer remains and must be manually removed using the <a href="./list-of-operations.html#set-options">Set Options</a> operation.</p>
+<p>This type of signer is especially usefull in escrow accounts. You can pre-authorize two different transactions. Both could have the same sequence number but different destinations. This means that only one of them can be executed.</p>
+<h3 id="hashx"><a class="anchorShortcut" href="#hashx" aria-hidden="true"></a> Hash(x)</h3>
+<p>Adding a signature of type hash(x) allows anyone who knows <code>x</code> to sign the transaction. This type of signer is especially usefull in <a href="https://en.bitcoin.it/wiki/Atomic_cross-chain_trading">atomic cross-chain swaps</a> which are needed for inter-blockchain protocols like <a href="https://lightning.network">lightning networks</a>.</p>
+<p>First, create a random 256 bit value, which we call <code>x</code>. The SHA256 hash of that value can be added as a signer of type hash(x). Then in order to authorize a transaction, <code>x</code> is added as one of the signatures of the transaction.
+Keep in mind that <code>x</code> will be known to the world as soon as a transaction is submitted to the network with <code>x</code> as a signature. This means anyone will be able to sign for that account with the hash(x) signer at that point. Often you want there to be additional signers so someone must have a particular secret key and know <code>x</code> inorder reach the weight threshold required to authorize transactions on the account.</p>
+<h2 id="envelopes"><a class="anchorShortcut" href="#envelopes" aria-hidden="true"></a> Envelopes</h2>
+<p>A transaction <strong>envelope</strong> wraps a transaction with a set of signatures. The transaction object is the thing that the signers are actually signing. Technically, a transaction envelope is the thing that is passed around the network and included in transaction sets.</p>
+<h2 id="authorization"><a class="anchorShortcut" href="#authorization" aria-hidden="true"></a> Authorization</h2>
+<p>To determine if a transaction has the necessary authorization to run, the weights of all the signatures in the transaction envelope are added up. If this sum is equal to or greater than the threshold (see below) set for that operation type, then the operation is authorized.</p>
+<p>This scheme is very flexible. You can require many signers to authorize payments from a particular account. You can have an account that any number of people can authorize for. You can have a master key that grants access or revokes access from others. It supports any m of n setup.</p>
+<h2 id="operations"><a class="anchorShortcut" href="#operations" aria-hidden="true"></a> Operations</h2>
+<h3 id="example-1-anchors"><a class="anchorShortcut" href="#example-1-anchors" aria-hidden="true"></a> Example 1: Anchors</h3>
+<blockquote>
+<p>You run an anchor that would like to keep its issuing key offline. That way, it&#x2019;s less likely a bad actor can get ahold of the anchor&#x2019;s key and start issuing credit improperly. However, your anchor needs to authorize people holding credit by running the <code>Allow Trust</code> operation. Before you issue credit to an account, you need to verify that account is OK.</p>
+</blockquote>
+<p>Multisig allows you to do all of this without exposing the master key of your anchor. You can add another signing key
+to your account with the operation <code>Set Options</code>.  This additional key should have a weight below your anchor account&#x2019;s
+medium threshold. Since <code>Allow Trust</code> is a low-threshold operation, this extra key authorizes users to hold your anchor&#x2019;s
+credit. But, since <code>Payment</code> is a medium-threshold operation, this key does not allow anyone who compromises your anchor to issue credit.</p>
+<p>Your account setup:</p>
+<pre><code>  master key weight: 2
+  additional signing key weight: 1
+  low threshold: 0
+  medium threshold: 2
+  high threshold: 2
+</code></pre>
+<h3 id="example-2-joint-accounts"><a class="anchorShortcut" href="#example-2-joint-accounts" aria-hidden="true"></a> Example 2: Joint Accounts</h3>
+<blockquote>
+<p>You want to set up a joint account with Bilal and Carina such that any of you can authorize a payment. You also want to set up the account so that, if you choose to change signers (e.g., remove or add someone), a high-threshold operation, all 3 of you must agree. You add Bilal and Carina as signers to the joint account. You also ensure that it takes all of your key weights to clear the high threshold but only one to clear the medium threshold.</p>
+</blockquote>
+<p>Joint account setup:</p>
+<pre><code>  master key weight: 1
+  low threshold: 0
+  medium threshold: 0
+  high threshold: 3
+  Bilal&apos;s signing key weight: 1
+  Carina&apos;s signing key weight: 1
+</code></pre>
+<h3 id="example-3-company-accounts"><a class="anchorShortcut" href="#example-3-company-accounts" aria-hidden="true"></a> Example 3: Company Accounts</h3>
+<blockquote>
+<p>Your company wants to set up an account that requires 3 of 6 employees to agree to <em>any</em> transaction from that account.</p>
+</blockquote>
+<p>Company account setup:</p>
+<pre><code>  master key weight: 0 (Turned off so this account can&apos;t do anything without an employee)
+  low threshold: 3
+  medium threshold: 3
+  high threshold: 3
+  Employee 1 key weight: 1
+  Employee 2 key weight: 1
+  Employee 3 key weight: 1
+  Employee 4 key weight: 1
+  Employee 5 key weight: 1
+  Employee 6 key weight: 1
+</code></pre>
+<h3 id="example-4-expense-accounts"><a class="anchorShortcut" href="#example-4-expense-accounts" aria-hidden="true"></a> Example 4: Expense Accounts</h3>
+<blockquote>
+<p>You fully control an expense account, but you want your two coworkers Diyuan and Emil to be able to authorize transactions
+from this account. You add Diyuan and Emil&#x2019;s signing keys to the expense account. If either Diyuan or Emil leave the company,
+you can remove their signing key, a high-threshold operation.</p>
+</blockquote>
+<p>Expense account setup:</p>
+<pre><code>  master key weight: 3
+  low: 0
+  medium: 0
+  high: 3
+  Diyuan&apos;s key weight: 1
+  Emil&apos;s key weight: 1
+</code></pre>
+<h3 id="example-5-custom-currencies"><a class="anchorShortcut" href="#example-5-custom-currencies" aria-hidden="true"></a> Example 5: Custom Currencies</h3>
+<blockquote>
+<p>You want to issue a custom currency and ensure that no more will ever be created. You make a source account and issue
+the maximum amount of currency to a holding account. Then you set the master weight of the source account to below the
+medium threshold&#x2013;the source account can no longer issue currency.</p>
+</blockquote>
+<p>Source account setup:</p>
+<pre><code>  master key weight: 0
+  low threshold: 0
+  medium threshold: 0
+  high threshold: 0
+</code></pre>
+<p>Note that even though the thresholds are 0 here, the master key cannot successfully sign a transaction because it&#x2019;s own weight is 0, which makes it an invalid signing key.</p>
+
+      <br>
+      <a href="https://github.com/payshares/docs/blob/master/guides/concepts/multi-sig.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

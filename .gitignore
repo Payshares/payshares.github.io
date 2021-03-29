@@ -1,6 +1,6 @@
 /bower_components
 /node_modules
-/build
+#/build
 /repos
 /src/js/vendor.js
 /src/js/*-symbols.json

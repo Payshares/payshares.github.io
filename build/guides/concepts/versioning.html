@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Versioning and Upgrading | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Versioning and Upgrading | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item is-currentItem" href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item " href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Get Started</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/get-started/index.html">Payshares Network Overview</a></li>
+          <li class="pageNavList__item"><a href="/guides/get-started/create-account.html">Create an Account</a></li>
+  <li class="pageNavList__item"><a href="/guides/get-started/transactions.html">Send and Receive Money</a></li>
+
+        </ol>
+      </li>
+    
+
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Become an Anchor</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/anchor/index.html">Architecture</a></li>
+          <li class="pageNavList__item"><a href="/guides/anchor/2-bridge-server.html">Bridge Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/3-federation-server.html">Federation Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/4-compliance-server.html">Compliance Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/5-conclusion.html">Next Steps</a></li>
+
+        </ol>
+      </li>
+    
+      
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Concepts</span>
+        <ul class="collapsibleListSet__list">
+              <li class="pageNavList__item"><a href="/guides/concepts/accounts.html">Accounts</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/assets.html">Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/exchange.html">Distributed Exchange</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/federation.html">Federation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/fees.html">Fees</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/inflation.html">Inflation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/ledger.html">Ledger</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/list-of-operations.html">List of Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/multi-sig.html">Multisignature</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/operations.html">Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/scp.html">Payshares Consensus Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/stellar-toml.html">Payshares.toml</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/test-net.html">Testnet</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/transactions.html">Transactions</a></li>
+  <li class="pageNavList__item is-currentItem"><a href="/guides/concepts/versioning.html">Versioning and Upgrading</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/xdr.html">XDR</a></li>
+
+        </ul>
+      </li>
+    
+        <li class="pageNavList__item"><a href="/guides/attachment.html">Payshares Attachment Convention</a></li>
+  <li class="pageNavList__item"><a href="/guides/channels.html">Channels</a></li>
+  <li class="pageNavList__item"><a href="/guides/compliance-protocol.html">Compliance Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/issuing-assets.html">Issuing Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/security.html">Security</a></li>
+  <li class="pageNavList__item"><a href="/guides/things-to-build.html">Build Payshares Apps</a></li>
+        <li class="pageNavList__item"><a href="/guides/contributing.html">Contribution Guide</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Versioning and Upgrading
+      
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <p>This document describes the various mechanisms used to keep the overall system working as it evolves.</p>
+<h1 id="ledger-versioning"><a class="anchorShortcut" href="#ledger-versioning" aria-hidden="true"></a> Ledger versioning</h1>
+<h2 id="ledgerversion"><a class="anchorShortcut" href="#ledgerversion" aria-hidden="true"></a> ledgerVersion</h2>
+<p>This uint32 stored in the ledger header describes the version number of the overall protocol.
+Protocol in this case is defined both as &#x201C;wire format&#x201D;&#x2013;i.e., the serialized forms of all objects stored in the ledger&#x2013;and its behavior.</p>
+<p>This version number is incremented every time the protocol changes.</p>
+<h3 id="integration-with-consensus"><a class="anchorShortcut" href="#integration-with-consensus" aria-hidden="true"></a> Integration with consensus</h3>
+<p>Most of the time, consensus is simply reached on which transaction set needs to be applied to the previous ledger.</p>
+<p>Consensus can also, however, be reached on upgrade steps.</p>
+<p>One such upgrade step is &#x201C;update ledgerVersion to value X after ledger N&#x201D;.</p>
+<p>If nodes do not consider that the upgrade step is valid, they simply drop the upgrade step from their vote.</p>
+<p>A node considers a step invalid either because they do not understand it or some condition is not met. In the previous example, it could be that X is not supported by the node or that the ledger number didn&#x2019;t reach N yet.</p>
+<p>Upgrade steps are applied before applying the transaction set to ensure that the logic scheduling steps is the same that is processing it. Otherwise, the steps would have to be applied after the ledger is closed.</p>
+<h3 id="supported-versions"><a class="anchorShortcut" href="#supported-versions" aria-hidden="true"></a> Supported versions</h3>
+<p>Each node has its own way of tracking which version it supports&#x2013;for example, a &#x201C;min version&#x201D;, &#x201C;max version&#x201D;&#x2013;but it can also include things like &#x201C;black listed versions.&#x201D; Supported versions are not tracked from within the protocol.</p>
+<p>Note that minProtocolVersion is distinct from the version an instance understands:
+typically an implementation understands versions n &#x2026; maxProtocolVersion, where n &lt;= minProtocolVersion.
+The reason for this is that nodes must be able to replay transactions from history (down to version &#x2018;n&#x2019;), yet there might be some issue/vulnerability that we don&#x2019;t want to be exploitable for new transactions.</p>
+<h2 id="ledger-object-versioning"><a class="anchorShortcut" href="#ledger-object-versioning" aria-hidden="true"></a> Ledger object versioning</h2>
+<p>Data structures that are likely to evolve over time contain the following extension point:</p>
+<pre><code class="language-C++">union switch(int v)
+{
+case 0:
+    void;
+} ext;
+</code></pre>
+<p>In this case, the version &#x2018;v&#x2019; refers to the version of the object and permits the addition of new arms.</p>
+<p>This scheme offers several benefits:</p>
+<ul>
+<li>Implementations become wire compatible without code changes only by updating their protocol definition files.</li>
+<li>Even without updating the protocol definition files, older implementations continue to function as long as they don&#x2019;t encounter newer formats.</li>
+<li>It promotes code sharing between versions of the objects.</li>
+</ul>
+<p>Note that while this scheme promotes code sharing for components consuming those objects, code sharing is not necessarily promoted for payshares-core itself because the behavior must be preserved for all versions: In order to reconstruct the ledger chain from arbitrary points in time, the behavior must be 100% compatible.</p>
+<h2 id="operations-versioning"><a class="anchorShortcut" href="#operations-versioning" aria-hidden="true"></a> Operations versioning</h2>
+<p>Operations are versioned as a whole: If a new parameter needs to be added or changed, versioning is achieved by adding a new operation.
+This causes some duplication of logic in clients but avoids introducing potential bugs. For example, code that would sign only certain types of transactions must be fully aware of what it&#x2019;s signing.</p>
+<h2 id="envelope-versioning"><a class="anchorShortcut" href="#envelope-versioning" aria-hidden="true"></a> Envelope versioning</h2>
+<p>Pattern used to allow for extensibility of envelopes (signed content):</p>
+<pre><code class="language-C++">union TransactionEnvelope switch (int v)
+{
+case 0:
+    struct
+    {
+        Transaction tx;
+        DecoratedSignature signatures&lt;20&gt;;
+    } v0;
+};
+</code></pre>
+<p>This pattern allows the capability to modify the envelope if needed and ensures that clients don&#x2019;t blindly consume content that they couldn&#x2019;t validate.</p>
+<h2 id="upgrading-objects-that-dont-have-an-extension-point"><a class="anchorShortcut" href="#upgrading-objects-that-dont-have-an-extension-point" aria-hidden="true"></a> Upgrading objects that don&#x2019;t have an extension point</h2>
+<p>The object&#x2019;s schema must be cloned and its parent object must be updated to use the new object type. The assumption here is that there is no unversioned &#x201C;root&#x201D; object.</p>
+<h2 id="supported-implementations-lifetime-considerations"><a class="anchorShortcut" href="#supported-implementations-lifetime-considerations" aria-hidden="true"></a> Supported implementations lifetime considerations</h2>
+<p>In order to keep the codebase in a maintainable state, implementations may not preserve the ability to play back from genesis. Instead they may opt to support a limited range&#x2013;for example, only preserve the capability to replay the previous 3 months of transactions (assuming that the network&#x2019;s minProtocolVersion is more recent than that).</p>
+<p>This does not change the ability of the node to (re)join or participate in the network; it only affects the ability for a node to do historical validation.</p>
+<h1 id="overlay-versioning"><a class="anchorShortcut" href="#overlay-versioning" aria-hidden="true"></a> Overlay versioning</h1>
+<p>Overlay follows a similar pattern for versioning: It has a min-maxOverlayVersion.</p>
+<p>The versioning policy at the overlay layer is a lot more aggressive when it comes to the deprecation schedule; the set of nodes involved is limited to the ones that connect directly to the instance.</p>
+<p>With this in mind, structures follow the &#x201C;clone&#x201D; model at this layer:
+if a message needs to be modified, a new message is defined by cloning the old message type using a new type identifier.</p>
+<p>Knowing that the older implementation will be deleted anyway, the clone model makes it possible to refactor large parts of the code and avoids the headache of maintaining older versions.</p>
+<p>At this layer, it&#x2019;s acceptable to modify the behavior of older versions as long as it stays compatible.</p>
+<p>The implementation may decide to share the underlying code&#x2013;for example, by converting legacy messages into the new format internally.</p>
+<p>The &#x201C;HELLO&#x201D; message exchanged when peers connect to each other contains the min and max version the instance supports. The other endpoint may decide to disconnect right away if it&#x2019;s not compatible.</p>
+
+      <br>
+      <a href="https://github.com/payshares/docs/blob/master/guides/concepts/versioning.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

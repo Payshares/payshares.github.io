@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Bridge Server | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Bridge Server | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item is-currentItem" href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item " href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Get Started</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/get-started/index.html">Payshares Network Overview</a></li>
+          <li class="pageNavList__item"><a href="/guides/get-started/create-account.html">Create an Account</a></li>
+  <li class="pageNavList__item"><a href="/guides/get-started/transactions.html">Send and Receive Money</a></li>
+
+        </ol>
+      </li>
+    
+
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Become an Anchor</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/anchor/index.html">Architecture</a></li>
+          <li class="pageNavList__item is-currentItem"><a href="/guides/anchor/2-bridge-server.html">Bridge Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/3-federation-server.html">Federation Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/4-compliance-server.html">Compliance Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/5-conclusion.html">Next Steps</a></li>
+
+        </ol>
+      </li>
+    
+      
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Concepts</span>
+        <ul class="collapsibleListSet__list">
+              <li class="pageNavList__item"><a href="/guides/concepts/accounts.html">Accounts</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/assets.html">Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/exchange.html">Distributed Exchange</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/federation.html">Federation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/fees.html">Fees</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/inflation.html">Inflation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/ledger.html">Ledger</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/list-of-operations.html">List of Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/multi-sig.html">Multisignature</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/operations.html">Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/scp.html">Payshares Consensus Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/stellar-toml.html">Payshares.toml</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/test-net.html">Testnet</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/transactions.html">Transactions</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/versioning.html">Versioning and Upgrading</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/xdr.html">XDR</a></li>
+
+        </ul>
+      </li>
+    
+        <li class="pageNavList__item"><a href="/guides/attachment.html">Payshares Attachment Convention</a></li>
+  <li class="pageNavList__item"><a href="/guides/channels.html">Channels</a></li>
+  <li class="pageNavList__item"><a href="/guides/compliance-protocol.html">Compliance Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/issuing-assets.html">Issuing Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/security.html">Security</a></li>
+  <li class="pageNavList__item"><a href="/guides/things-to-build.html">Build Payshares Apps</a></li>
+        <li class="pageNavList__item"><a href="/guides/contributing.html">Contribution Guide</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Bridge Server
+      
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <p><a href="http://Payshares.org">Payshares.org</a> maintains a <a href="https://github.com/payshares/bridge-server/blob/master/readme_bridge.md">bridge server</a>, which makes it easier to use the federation and compliance servers to send and receive payments. When using the bridge server, the only code you need to write is a private service to receive payment notifications and respond to regulatory checks from the bridge and compliance servers.</p>
+<figure><img src="assets/anchor-send-payment-basic-bridge.png" alt="Payment flow diagram"></figure>
+<p>When using the bridge server, you send payments by making an HTTP POST request to it instead of a Horizon server. It doesn&#x2019;t change a whole lot for simple transactions, but it will make the next steps of federation and compliance much simpler.</p>
+<h2 id="create-a-database"><a class="anchorShortcut" href="#create-a-database" aria-hidden="true"></a> Create a Database</h2>
+<p>The bridge server requires a MySQL or PostgreSQL database in order to track and coordinate transaction and compliance information. Create an empty database named <code>payshares_bridge</code> and a user to manage it. You don&#x2019;t need to add any tables; the bridge server has <a href="#start-the-server">a special command to do that for you</a>.</p>
+<h2 id="download-and-configure-bridge-server"><a class="anchorShortcut" href="#download-and-configure-bridge-server" aria-hidden="true"></a> Download and Configure Bridge Server</h2>
+<p>Next, <a href="https://github.com/payshares/bridge-server/releases">download the latest bridge server</a> for your platform. Install the executable anywhere you like. In the same directory, create a file named <code>bridge.cfg</code>. This will store the configuration for the bridge server. It should look something like:</p>
+<code-example name="bridge.cfg">
+<pre><code class="language-toml">port = 8006
+horizon = &quot;https://horizon-testnet.payshares.org&quot;
+network_passphrase = &quot;Test SDF Network ; September 2015&quot;
+# We&apos;ll fill this in once we set up a compliance server
+compliance = &quot;&quot;
+
+# This describes the assets that can be sent and received.
+# Repeat this section to add support for more asset types.
+[[assets]]
+code=&quot;USD&quot;
+issuer=&quot;GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&quot;
+
+[database]
+type = &quot;mysql&quot;  # or &quot;postgres&quot; if you created a postgres database
+url = &quot;dbuser:dbpassword@/payshares_bridge&quot;
+
+[accounts]
+# The secret seed for your base account, from which payments are made
+base_seed = &quot;SAV75E2NK7Q5JZZLBBBNUPCIAKABN64HNHMDLD62SZWM6EBJ4R7CUNTZ&quot;
+# The account ID that receives payments on behalf of your customers. In this
+# case, it is the account ID that matches `base_seed` above.
+receiving_account_id = &quot;GAIGZHHWK3REZQPLQX5DNUN4A32CSEONTU6CMDBO7GDWLPSXZDSYA4BU&quot;
+# A secret seed that can authorize trustlines for assets you issue. For more,
+# see https://payshares.org/developers/guides/concepts/assets.html#controlling-asset-holders
+authorizing_seed = &quot;SBILUHQVXKTLPYXHHBL4IQ7ISJ3AKDTI2ZC56VQ6C2BDMNF463EON65U&quot;
+# The ID of the account that issues your assets
+issuing_account_id = &quot;GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&quot;
+
+[callbacks]
+# The server will send POST requests to this URL to notify you of payments
+receive = &quot;http://localhost:8005/receive&quot;
+</code></pre>
+</code-example>
+<h2 id="start-the-server"><a class="anchorShortcut" href="#start-the-server" aria-hidden="true"></a> Start the Server</h2>
+<p>Before starting the server the first time, the tables in your database need to be created. Running bridge server with the <code>--migrate-db</code> argument will make sure everything is set to go:</p>
+<pre><code class="language-bash">./bridge --migrate-db
+</code></pre>
+<p>Each time you update the bridge server to a new version, you should run this command again. It will upgrade your database in case anything needs to be changed.</p>
+<p>Now that your database is fully set up, you can start the bridge server by running:</p>
+<pre><code class="language-bash">./bridge
+</code></pre>
+<h2 id="send-a-payment"><a class="anchorShortcut" href="#send-a-payment" aria-hidden="true"></a> Send a Payment</h2>
+<p>The bridge server takes commands in the form of HTTP requests, so we can test submitting a payment by sending a <code>POST</code> request to <code>/payments</code>. Try sending 1 USD to the account <code>GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB</code>. (Remember that the receiving account will need to trust the asset first. See <a href="../issuing-assets.html">issuing assets</a> for more details.)</p>
+<code-example name="Send a Payment">
+<pre><code class="language-bash">curl -X POST -d \
+&quot;amount=1&amp;\
+asset_code=USD&amp;\
+asset_issuer=GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&amp;\
+destination=GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB&amp;\
+source=SAV75E2NK7Q5JZZLBBBNUPCIAKABN64HNHMDLD62SZWM6EBJ4R7CUNTZ&quot; \
+http://localhost:8006/payment
+</code></pre>
+<pre><code class="language-js">var request = require(&apos;request&apos;);
+
+request.post({
+  url: &apos;http://localhost:8001/payment&apos;,
+  form: {
+    amount: &apos;1&apos;,
+    asset_code: &apos;USD&apos;,
+    asset_issuer: &apos;GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&apos;,
+    destination: &apos;GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB&apos;,
+    source: &apos;SAV75E2NK7Q5JZZLBBBNUPCIAKABN64HNHMDLD62SZWM6EBJ4R7CUNTZ&apos;
+  }
+}, function(error, response, body) {
+  if (error || response.statusCode !== 200) {
+    console.error(&apos;ERROR!&apos;, error || body);
+  }
+  else {
+    console.log(&apos;SUCCESS!&apos;, body);
+  }
+});
+</code></pre>
+<pre><code class="language-java">import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PaymentRequest() {
+  public static void main(String [] args) {
+    HttpPost paymentRequest = new HttpPost(&quot;http://localhost:8006/payment&quot;);
+
+    List&lt;NameValuePair&gt; params = new ArrayList&lt;NameValuePair&gt;();
+    params.add(new BasicNameValuePair(&quot;amount&quot;, &quot;1&quot;));
+    params.add(new BasicNameValuePair(&quot;asset_code&quot;, &quot;USD&quot;));
+    params.add(new BasicNameValuePair(&quot;asset_issuer&quot;, &quot;GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&quot;));
+    params.add(new BasicNameValuePair(&quot;destination&quot;, &quot;GCFXHS4GXL6BVUCXBWXGTITROWLVYXQKQLF4YH5O5JT3YZXCYPAFBJZB&quot;));
+    params.add(new BasicNameValuePair(&quot;source&quot;, &quot;SAV75E2NK7Q5JZZLBBBNUPCIAKABN64HNHMDLD62SZWM6EBJ4R7CUNTZ&quot;));
+
+    HttpResponse response = httpClient.execute(paymentRequest);
+    HttpEntity entity = response.getEntity();
+    if (entity != null) {
+      String body =  EntityUtils.toString(entity);
+      System.out.println(body);
+    }
+  }
+}
+</code></pre>
+</code-example>
+<h2 id="create-a-server-to-receive-payments"><a class="anchorShortcut" href="#create-a-server-to-receive-payments" aria-hidden="true"></a> Create a Server to Receive Payments</h2>
+<figure><img src="assets/anchor-receive-payment-basic-bridge.png" alt="Payment flow diagram"></figure>
+<p>In the bridge server configuration file, you might have noticed a callback URL named <code>receive</code>. Whenever a payment is received, the bridge server will send an HTTP <code>POST</code> request to the URL you specified. The main responsibility of the <code>receive</code> endpoint is to update your customer&#x2019;s balance in response to receiving a payment (since the payment went to your account on Payshares).</p>
+<code-example name="Implementing the Receive Callback">
+<pre><code class="language-js">/**
+ * A small Express.js web server for handling payments from the bridge server.
+ */
+
+var express = require(&apos;express&apos;);
+var bodyParser = require(&apos;body-parser&apos;);
+
+var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post(&apos;/receive&apos;, function (request, response) {
+  var payment = request.body;
+
+  // `receive` may be called multiple times for the same payment, so check that
+  // you haven&apos;t already seen this payment ID.
+  if (getPaymentByIdFromDb(payment.id)) {
+    return response.status(200).end();
+  }
+
+  // Because we have one Payshares account representing many customers, the
+  // customer the payment is intended for should be in the transaction memo.
+  var customer = getAccountFromDb(payment.memo);
+
+  // You need to check the asset code and issuer to make sure it&apos;s an asset
+  // that you can accept payment to this account for. In this example, we just
+  // convert the amount to USD and adding the equivalent amount to the customer
+  // balance. You need to implement `convertToUsd()` yourself.
+  var dollarAmount = convertToUsd(
+    payment.amount, payment.asset_code, payment.asset_issuer);
+  addToBankAccountBalance(customer, dollarAmount);
+  response.status(200).end();
+  console.log(&apos;Added &apos; + dollarAmount + &apos; USD to account: &apos; + customer);
+});
+
+app.listen(8005, function () {
+  console.log(&apos;Bridge server callbacks running on port 8005!&apos;);
+});
+</code></pre>
+<pre><code class="language-java">import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+/**
+ * A small Jersey web server for handling callbacks from Payshares services
+ */
+@Path(&quot;/&quot;)
+public class PaysharesCallbacks {
+
+  @POST
+  @Path(&quot;receive&quot;)
+  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+  public Response receive(
+    @FormParam(&quot;id&quot;) String id,
+    @FormParam(&quot;amount&quot;) String amount,
+    @FormParam(&quot;asset_code&quot;) String assetCode,
+    @FormParam(&quot;asset_issuer&quot;) String assetIssuer,
+    @FormParam(&quot;memo&quot;) String memo) {
+
+    // `receive` may be called multiple times for the same payment, so check
+    // that you haven&apos;t already seen this payment ID. (getPaymentByIdFromDb is
+    // a method you&#x2019;ll need to implement.)
+    if (getPaymentByIdFromDb(id)) {
+      return Response.ok().build();
+    }
+
+    // Because we have one Payshares account representing many customers, the
+    // customer the payment is intended for should be in the transaction memo.
+    // (getAccountFromDb is a method you&#x2019;ll need to implement.)
+    Customer customer = getAccountFromDb(memo);
+
+    // You need to check the asset code and issuer to make sure it&apos;s an asset
+    // that you can accept payment to this account for. In this example, we just
+    // convert the amount to USD and adding the equivalent amount to the
+    // customer balance. You need to implement `convertToUsd()` yourself.
+    Double dollarAmount = convertToUsd(amount, assetCode, assetIssuer);
+    addToBankAccountBalance(customer, dollarAmount);
+    return Response.ok().build();
+    System.out.println(String.format(
+      &quot;Add %s, USD to account: %s&quot;,
+      dollarAmount,
+      customer));
+  }
+
+}
+</code></pre>
+</code-example>
+<p>To test that your receive callback works, let&#x2019;s try sending 1 USD to a customer with the account name <code>Amy</code> at your bank. (For a review of sending payments using the API, check <a href="../get-started/transactions.html">step 3 of &#x201C;get started&#x201D;</a>.)</p>
+<code-example name="Test Receive Callback">
+<pre><code class="language-js">var PaysharesSdk = require(&apos;payshares-sdk&apos;);
+var server = new PaysharesSdk.Server(&apos;https://horizon-testnet.payshares.org&apos;);
+var sourceKeys = PaysharesSdk.Keypair.fromSecret(
+  &apos;SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4&apos;);
+var destinationId = &apos;GAIGZHHWK3REZQPLQX5DNUN4A32CSEONTU6CMDBO7GDWLPSXZDSYA4BU&apos;;
+
+server.loadAccount(sourceKeys.publicKey())
+  .then(function(sourceAccount) {
+    var transaction = new PaysharesSdk.TransactionBuilder(sourceAccount)
+      .addOperation(PaysharesSdk.Operation.payment({
+        destination: destinationId,
+        asset: new PaysharesSdk.Asset(
+          &apos;USD&apos;, &apos;GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&apos;),
+        amount: &apos;1&apos;
+      }))
+      // Use the memo to indicate the customer this payment is intended for.
+      .addMemo(PaysharesSdk.Memo.text(&apos;Amy&apos;))
+      .build();
+    transaction.sign(sourceKeys);
+    return server.submitTransaction(transaction);
+  })
+  .then(function(result) {
+    console.log(&apos;Success! Results:&apos;, result);
+  })
+  .catch(function(error) {
+    console.error(&apos;Something went wrong!&apos;, error);
+  });
+</code></pre>
+<pre><code class="language-java">Server server = new Server(&quot;https://horizon-testnet.payshares.org&quot;);
+
+KeyPair source = KeyPair.fromSecretSeed(
+  &quot;SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4&quot;);
+KeyPair destination = KeyPair.fromAccountId(
+  &quot;GAIGZHHWK3REZQPLQX5DNUN4A32CSEONTU6CMDBO7GDWLPSXZDSYA4BU&quot;);
+Asset dollar = Asset.createNonNativeAsset(&quot;USD&quot;, KeyPair.fromAccountId(
+    &quot;GAIUIQNMSXTTR4TGZETSQCGBTIF32G2L5P4AML4LFTMTHKM44UHIN6XQ&quot;));
+
+AccountResponse sourceAccount = server.accounts().account(source);
+Transaction transaction = new Transaction.Builder(sourceAccount)
+  .addOperation(new PaymentOperation.Builder(destination, dollar, &quot;1&quot;).build())
+  // Use the memo to indicate the customer this payment is intended for.
+  .addMemo(Memo.text(&quot;Amy&quot;))
+  .build();
+transaction.sign(source);
+
+try {
+  SubmitTransactionResponse response = server.submitTransaction(transaction);
+  System.out.println(&quot;Success!&quot;);
+  System.out.println(response);
+} catch (Exception e) {
+  System.out.println(&quot;Something went wrong!&quot;);
+  System.out.println(e.getMessage());
+}
+</code></pre>
+</code-example>
+<p>After running the above code, your callback server should have logged information about the payment.</p>
+<nav class="sequence-navigation">
+  <a rel="prev" href="./" class="button button--previous">Back: Architecture</a>
+  <a rel="next" href="3-federation-server.html" class="button button--next">Next: Federation Server</a>
+</nav>
+
+      <br>
+      <a href="https://github.com/payshares/docs/blob/master/guides/anchor/2-bridge-server.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>
