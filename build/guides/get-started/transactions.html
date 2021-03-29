@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Send and Receive Money | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Send and Receive Money | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item is-currentItem" href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item " href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Get Started</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/get-started/index.html">Payshares Network Overview</a></li>
+          <li class="pageNavList__item"><a href="/guides/get-started/create-account.html">Create an Account</a></li>
+  <li class="pageNavList__item is-currentItem"><a href="/guides/get-started/transactions.html">Send and Receive Money</a></li>
+
+        </ol>
+      </li>
+    
+
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Become an Anchor</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/anchor/index.html">Architecture</a></li>
+          <li class="pageNavList__item"><a href="/guides/anchor/2-bridge-server.html">Bridge Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/3-federation-server.html">Federation Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/4-compliance-server.html">Compliance Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/5-conclusion.html">Next Steps</a></li>
+
+        </ol>
+      </li>
+    
+      
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Concepts</span>
+        <ul class="collapsibleListSet__list">
+              <li class="pageNavList__item"><a href="/guides/concepts/accounts.html">Accounts</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/assets.html">Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/exchange.html">Distributed Exchange</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/federation.html">Federation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/fees.html">Fees</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/inflation.html">Inflation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/ledger.html">Ledger</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/list-of-operations.html">List of Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/multi-sig.html">Multisignature</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/operations.html">Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/scp.html">Payshares Consensus Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/stellar-toml.html">Payshares.toml</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/test-net.html">Testnet</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/transactions.html">Transactions</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/versioning.html">Versioning and Upgrading</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/xdr.html">XDR</a></li>
+
+        </ul>
+      </li>
+    
+        <li class="pageNavList__item"><a href="/guides/attachment.html">Payshares Attachment Convention</a></li>
+  <li class="pageNavList__item"><a href="/guides/channels.html">Channels</a></li>
+  <li class="pageNavList__item"><a href="/guides/compliance-protocol.html">Compliance Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/issuing-assets.html">Issuing Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/security.html">Security</a></li>
+  <li class="pageNavList__item"><a href="/guides/things-to-build.html">Build Payshares Apps</a></li>
+        <li class="pageNavList__item"><a href="/guides/contributing.html">Contribution Guide</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Send and Receive Money
+      
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <p>Now that you have an account, you can send and receive funds through the Payshares network. If you haven&#x2019;t created an account yet, read <a href="./create-account.html">step 2 of the Get Started guide</a>.</p>
+<p>Most of the time, you&#x2019;ll be sending money to someone else who has their own account. For this interactive guide, however, you should make a second account to transact with using the same method you used to make your first account.</p>
+<h2 id="send-payments"><a class="anchorShortcut" href="#send-payments" aria-hidden="true"></a> Send Payments</h2>
+<p>Actions that change things in Payshares, like sending payments, changing your account, or making offers to trade various kinds of currencies, are called <strong>operations.</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> In order to actually perform an operation, you create a <strong>transaction</strong>, which is just a group of operations accompanied by some extra information, like what account is making the transaction and a cryptographic signature to verify that the transaction is authentic.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p>If any operation in the transaction fails, they all fail. For example, let&#x2019;s say you have 100 stakks and you make two payment operations of 60 stakks each. If you make two transactions (each with one operation), the first will succeed and the second will fail because you don&#x2019;t have enough stakks. You&#x2019;ll be left with 40 stakks. However, if you group the two payments into a single transaction, they will both fail and you&#x2019;ll be left with the full 100 stakks still in your account.</p>
+<p>Finally, every transaction costs a small fee. Like the minimum balance on accounts, this fee helps stop people from overloading the system with lots of transactions. Known as the <strong>base fee</strong>, it is very small&#x2014;100 stroops per operation (that&#x2019;s 0.00001 XPS; stroops are easier to talk about than such tiny fractions of a stakk). A transaction with two operations would cost 200 stroops.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<h3 id="building-a-transaction"><a class="anchorShortcut" href="#building-a-transaction" aria-hidden="true"></a> Building a Transaction</h3>
+<p>Payshares stores and communicates transaction data in a binary format called XDR.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> Luckily, the Payshares SDKs provide tools that take care of all that. Here&#x2019;s how you might send 10 stakks to another account:</p>
+<code-example name="Submitting a Transaction">
+<pre><code class="language-js">var PaysharesSdk = require(&apos;payshares-sdk&apos;);
+PaysharesSdk.Network.useTestNetwork();
+var server = new PaysharesSdk.Server(&apos;https://horizon-testnet.payshares.org&apos;);
+var sourceKeys = PaysharesSdk.Keypair
+  .fromSecret(&apos;SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4&apos;);
+var destinationId = &apos;GA2C5RFPE6GCKMY3US5PAB6UZLKIGSPIUKSLRB6Q723BM2OARMDUYEJ5&apos;;
+// Transaction will hold a built transaction we can resubmit if the result is unknown.
+var transaction;
+
+// First, check to make sure that the destination account exists.
+// You could skip this, but if the account does not exist, you will be charged
+// the transaction fee when the transaction fails.
+server.loadAccount(destinationId)
+  // If the account is not found, surface a nicer error message for logging.
+  .catch(PaysharesSdk.NotFoundError, function (error) {
+    throw new Error(&apos;The destination account does not exist!&apos;);
+  })
+  // If there was no error, load up-to-date information on your account.
+  .then(function() {
+    return server.loadAccount(sourceKeys.publicKey());
+  })
+  .then(function(sourceAccount) {
+    // Start building the transaction.
+    transaction = new PaysharesSdk.TransactionBuilder(sourceAccount)
+      .addOperation(PaysharesSdk.Operation.payment({
+        destination: destinationId,
+        // Because Payshares allows transaction in many currencies, you must
+        // specify the asset type. The special &quot;native&quot; asset represents Stakks.
+        asset: PaysharesSdk.Asset.native(),
+        amount: &quot;10&quot;
+      }))
+      // A memo allows you to add your own metadata to a transaction. It&apos;s
+      // optional and does not affect how Payshares treats the transaction.
+      .addMemo(PaysharesSdk.Memo.text(&apos;Test Transaction&apos;))
+      .build();
+    // Sign the transaction to prove you are actually the person sending it.
+    transaction.sign(sourceKeys);
+    // And finally, send it off to Payshares!
+    return server.submitTransaction(transaction);
+  })
+  .then(function(result) {
+    console.log(&apos;Success! Results:&apos;, result);
+  })
+  .catch(function(error) {
+    console.error(&apos;Something went wrong!&apos;, error);
+    // If the result is unknown (no response body, timeout etc.) we simply resubmit
+    // already built transaction:
+    // server.submitTransaction(transaction);
+  });
+</code></pre>
+<pre><code class="language-java">Network.useTestNetwork();
+Server server = new Server(&quot;https://horizon-testnet.payshares.org&quot;);
+
+KeyPair source = KeyPair.fromSecretSeed(&quot;SCZANGBA5YHTNYVVV4C3U252E2B6P6F5T3U6MM63WBSBZATAQI3EBTQ4&quot;);
+KeyPair destination = KeyPair.fromAccountId(&quot;GA2C5RFPE6GCKMY3US5PAB6UZLKIGSPIUKSLRB6Q723BM2OARMDUYEJ5&quot;);
+
+// First, check to make sure that the destination account exists.
+// You could skip this, but if the account does not exist, you will be charged
+// the transaction fee when the transaction fails.
+// It will throw HttpResponseException if account does not exist or there was another error.
+server.accounts().account(destination);
+
+// If there was no error, load up-to-date information on your account.
+AccountResponse sourceAccount = server.accounts().account(source);
+
+// Start building the transaction.
+Transaction transaction = new Transaction.Builder(sourceAccount)
+        .addOperation(new PaymentOperation.Builder(destination, new AssetTypeNative(), &quot;10&quot;).build())
+        // A memo allows you to add your own metadata to a transaction. It&apos;s
+        // optional and does not affect how Payshares treats the transaction.
+        .addMemo(Memo.text(&quot;Test Transaction&quot;))
+        .build();
+// Sign the transaction to prove you are actually the person sending it.
+transaction.sign(source);
+
+// And finally, send it off to Payshares!
+try {
+  SubmitTransactionResponse response = server.submitTransaction(transaction);
+  System.out.println(&quot;Success!&quot;);
+  System.out.println(response);
+} catch (Exception e) {
+  System.out.println(&quot;Something went wrong!&quot;);
+  System.out.println(e.getMessage());
+  // If the result is unknown (no response body, timeout etc.) we simply resubmit
+  // already built transaction:
+  // SubmitTransactionResponse response = server.submitTransaction(transaction);
+}
+</code></pre>
+</code-example>
+<p>What exactly happened there? Let&#x2019;s break it down.</p>
+<ol>
+<li>
+<p>Confirm that the account ID you are sending to actually exists by loading the associated account data from the Payshares network. Everything will actually be OK if you skip this step, but doing it gives you an opportunity to avoid making a transaction you know will fail. You can also use this call to perform any other verification you might want to do on a destination account. If you are writing banking software, for example, this is a good place to insert regulatory compliance checks and <abbr title="Know Your Customer">KYC</abbr> verification.</p>
+ <code-example name="Load an Account">
+<pre><code class="language-js">server.loadAccount(destinationId)
+  .then(function(account) { /* validate the account */ })
+</code></pre>
+<pre><code class="language-java">server.accounts().account(destination);
+</code></pre>
+ </code-example>
+</li>
+<li>
+<p>Load data for the account you are sending from. An account can only perform one transaction at a time<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> and has something called a <a href="../concepts/accounts.html#sequence-number"><strong>sequence number</strong>,</a> which helps Payshares verify the order of transactions. A transaction&#x2019;s sequence number needs to match the account&#x2019;s sequence number, so you need to get the account&#x2019;s current sequence number from the network.</p>
+ <code-example name="Load Source Account">
+<pre><code class="language-js">.then(function() {
+return server.loadAccount(sourceKeys.publicKey());
+})
+</code></pre>
+<pre><code class="language-java">AccountResponse sourceAccount = server.accounts().account(source);
+</code></pre>
+ </code-example>
+<p>The SDK will automatically increment the account&#x2019;s sequence number when you build a transaction, so you won&#x2019;t need to retrieve this information again if you want to perform a second transaction.</p>
+</li>
+<li>
+<p>Start building a transaction. This requires an account object, not just an account ID, because it will increment the account&#x2019;s sequence number.</p>
+ <code-example name="Build a Transaction">
+<pre><code class="language-js">var transaction = new PaysharesSdk.TransactionBuilder(sourceAccount)
+</code></pre>
+<pre><code class="language-java">Transaction transaction = new Transaction.Builder(sourceAccount)
+</code></pre>
+ </code-example>
+</li>
+<li>
+<p>Add the payment operation to the account. Note that you need to specify the type of asset you are sending&#x2014;Payshares&#x2019;s &#x201C;native&#x201D; currency is the stakk, but you can send any type of asset or currency you like, from dollars to bitcoin to any sort of asset you trust the issuer to redeem <a href="#transacting-in-other-currencies">(more details below)</a>. For now, though, we&#x2019;ll stick to stakks, which are called &#x201C;native&#x201D; assets in the SDK:</p>
+ <code-example name="Add an Operation">
+<pre><code class="language-js">.addOperation(PaysharesSdk.Operation.payment({
+  destination: destinationId,
+  asset: PaysharesSdk.Asset.native(),
+  amount: &quot;10&quot;
+}))
+</code></pre>
+<pre><code class="language-java">.addOperation(new PaymentOperation.Builder(destination, new AssetTypeNative(), &quot;10&quot;).build())
+</code></pre>
+ </code-example>
+<p>You should also note that the amount is a string rather than a number. When working with extremely small fractions or large values, <a href="https://en.wikipedia.org/wiki/Floating_point#Accuracy_problems">floating point math can introduce small inaccuracies</a>. Since not all systems have a native way to accurately represent extremely small or large decimals, Payshares uses strings as a reliable way to represent the exact amount across any system.</p>
+</li>
+<li>
+<p>Optionally, you can add your own metadata, called a <a href="../concepts/transactions.html#memo"><strong>memo,</strong></a> to a transaction. Payshares doesn&#x2019;t do anything with this data, but you can use it for any purpose you&#x2019;d like. If you are a bank that is receiving or sending payments on behalf of other people, for example, you might include the actual person the payment is meant for here.</p>
+ <code-example name="Add a Memo">
+<pre><code class="language-js">.addMemo(PaysharesSdk.Memo.text(&apos;Test Transaction&apos;))
+</code></pre>
+<pre><code class="language-java">.addMemo(Memo.text(&quot;Test Transaction&quot;));
+</code></pre>
+ </code-example>
+</li>
+<li>
+<p>Now that the transaction has all the data it needs, you have to cryptographically sign it using your secret seed. This proves that the data actually came from you and not someone impersonating you.</p>
+ <code-example name="Sign the Transaction">
+<pre><code class="language-js">transaction.sign(sourceKeys);
+</code></pre>
+<pre><code class="language-java">transaction.sign(source);
+</code></pre>
+ </code-example>
+</li>
+<li>
+<p>And finally, send it to the Payshares network!</p>
+ <code-example name="Submit the Transaction">
+<pre><code class="language-js">server.submitTransaction(transaction);
+</code></pre>
+<pre><code class="language-java">server.submitTransaction(transaction);
+</code></pre>
+ </code-example>
+</li>
+</ol>
+<p><strong>IMPORTANT</strong> It&#x2019;s possible that you will not receive a response from Horizon server due to a bug, network conditions, etc. In such situation it&#x2019;s impossible to determine the status of your transaction. That&#x2019;s why you should always save a built transaction (or transaction encoded in XDR format) in a variable or a database and resubmit it if you don&#x2019;t know it&#x2019;s status. If the transaction has already been successfully applied to the ledger, Horizon will simply return the saved result and not attempt to submit the transaction again. Only in cases where a transaction&#x2019;s status is unknown (and thus will have a chance of being included into a ledger) will a resubmission to the network occur.</p>
+<h2 id="receive-payments"><a class="anchorShortcut" href="#receive-payments" aria-hidden="true"></a> Receive Payments</h2>
+<p>You don&#x2019;t actually need to do anything to receive payments into a Payshares account&#x2014;if a payer makes a successful transaction to send assets to you, those assets will automatically be added to your account.</p>
+<p>However, you&#x2019;ll want to know that someone has actually paid you. If you are a bank accepting payments on behalf of others, you need to find out what was sent to you so you can disburse funds to the intended recipient. If you are operating a retail business, you need to know that your customer actually paid you before you hand them their merchandise. And if you are an automated rental car with a Payshares account, you&#x2019;ll probably want to verify that the customer in your front seat actually paid before that person can turn on your engine.</p>
+<p>A simple program that watches the network for payments and prints each one might look like:</p>
+<code-example name="Receive Payments">
+<pre><code class="language-js">var PaysharesSdk = require(&apos;payshares-sdk&apos;);
+
+var server = new PaysharesSdk.Server(&apos;https://horizon-testnet.payshares.org&apos;);
+var accountId = &apos;GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF&apos;;
+
+// Create an API call to query payments involving the account.
+var payments = server.payments().forAccount(accountId);
+
+// If some payments have already been handled, start the results from the
+// last seen payment. (See below in `handlePayment` where it gets saved.)
+var lastToken = loadLastPagingToken();
+if (lastToken) {
+  payments.cursor(lastToken);
+}
+
+// `stream` will send each recorded payment, one by one, then keep the
+// connection open and continue to send you new payments as they occur.
+payments.stream({
+  onmessage: function(payment) {
+    // Record the paging token so we can start from here next time.
+    savePagingToken(payment.paging_token);
+
+    // The payments stream includes both sent and received payments. We only
+    // want to process received payments here.
+    if (payment.to !== accountId) {
+      return;
+    }
+
+    // In Payshares&#x2019;s API, Stakks are referred to as the &#x201C;native&#x201D; type. Other
+    // asset types have more detailed information.
+    var asset;
+    if (payment.asset_type === &apos;native&apos;) {
+      asset = &apos;stakks&apos;;
+    }
+    else {
+      asset = payment.asset_code + &apos;:&apos; + payment.asset_issuer;
+    }
+
+    console.log(payment.amount + &apos; &apos; + asset + &apos; from &apos; + payment.from);
+  },
+
+  onerror: function(error) {
+    console.error(&apos;Error in payment stream&apos;);
+  }
+});
+
+function savePagingToken(token) {
+  // In most cases, you should save this to a local database or file so that
+  // you can load it next time you stream new payments.
+}
+
+function loadLastPagingToken() {
+  // Get the last paging token from a local database or file
+}
+</code></pre>
+<pre><code class="language-java">Server server = new Server(&quot;https://horizon-testnet.payshares.org&quot;);
+KeyPair account = KeyPair.fromAccountId(&quot;GC2BKLYOOYPDEFJKLKY6FNNRQMGFLVHJKQRGNSSRRGSMPGF32LHCQVGF&quot;);
+
+// Create an API call to query payments involving the account.
+PaymentsRequestBuilder paymentsRequest = server.payments().forAccount(account);
+
+// If some payments have already been handled, start the results from the
+// last seen payment. (See below in `handlePayment` where it gets saved.)
+String lastToken = loadLastPagingToken();
+if (lastToken != null) {
+  paymentsRequest.cursor(lastToken);
+}
+
+// `stream` will send each recorded payment, one by one, then keep the
+// connection open and continue to send you new payments as they occur.
+paymentsRequest.stream(new EventListener&lt;OperationResponse&gt;() {
+  @Override
+  public void onEvent(OperationResponse payment) {
+    // Record the paging token so we can start from here next time.
+    savePagingToken(payment.getPagingToken());
+
+    // The payments stream includes both sent and received payments. We only
+    // want to process received payments here.
+    if (payment instanceof PaymentOperationResponse) {
+      if (((PaymentOperationResponse) payment).getTo().equals(account)) {
+        return;
+      }
+
+      String amount = ((PaymentOperationResponse) payment).getAmount();
+
+      Asset asset = ((PaymentOperationResponse) payment).getAsset();
+      String assetName;
+      if (asset.equals(new AssetTypeNative())) {
+        assetName = &quot;stakks&quot;;
+      } else {
+        StringBuilder assetNameBuilder = new StringBuilder();
+        assetNameBuilder.append(((AssetTypeCreditAlphaNum) asset).getCode());
+        assetNameBuilder.append(&quot;:&quot;);
+        assetNameBuilder.append(((AssetTypeCreditAlphaNum) asset).getIssuer().getAccountId());
+        assetName = assetNameBuilder.toString();
+      }
+
+      StringBuilder output = new StringBuilder();
+      output.append(amount);
+      output.append(&quot; &quot;);
+      output.append(assetName);
+      output.append(&quot; from &quot;);
+      output.append(((PaymentOperationResponse) payment).getFrom().getAccountId());
+      System.out.println(output.toString());
+    }
+
+  }
+});
+</code></pre>
+</code-example>
+<p>There are two main parts to this program. First, you create a query for payments involving a given account. Like most queries in Payshares, this could return a huge number of items, so the API returns paging tokens, which you can use later to start your query from the same point where you previously left off. In the example above, the functions to save and load paging tokens are left blank, but in a real application, you&#x2019;d want to save the paging tokens to a file or database so you can pick up where you left off in case the program crashes or the user closes it.</p>
+<code-example name="Create a Payments Query">
+<pre><code class="language-js">var payments = server.payments().forAccount(accountId);
+var lastToken = loadLastPagingToken();
+if (lastToken) {
+  payments.cursor(lastToken);
+}
+</code></pre>
+<pre><code class="language-java">PaymentsRequestBuilder paymentsRequest = server.payments().forAccount(account)
+String lastToken = loadLastPagingToken();
+if (lastToken != null) {
+  paymentsRequest.cursor(lastToken);
+}
+</code></pre>
+</code-example>
+<p>Second, the results of the query are streamed. This is the easiest way to watch for payments or other transactions. Each existing payment is sent through the stream, one by one. Once all existing payments have been sent, the stream stays open and new payments are sent as they are made.</p>
+<p>Try it out: Run this program, and then, in another window, create and submit a payment. You should see this program log the payment.</p>
+<code-example name="Stream Payments">
+<pre><code class="language-js">payments.stream({
+  onmessage: function(payment) {
+    // handle a payment
+  }
+});
+</code></pre>
+<pre><code class="language-java">paymentsRequest.stream(new EventListener&lt;OperationResponse&gt;() {
+  @Override
+  public void onEvent(OperationResponse payment) {
+    // Handle a payment
+  }
+});
+</code></pre>
+</code-example>
+<p>You can also request payments in groups, or pages. Once you&#x2019;ve processed each page of payments, you&#x2019;ll need to request the next one until there are none left.</p>
+<code-example name="Paged Payments">
+<pre><code class="language-js">payments.call().then(function handlePage(paymentsPage) {
+  paymentsPage.records.forEach(function(payment) {
+    // handle a payment
+  });
+  return paymentsPage.next().then(handlePage);
+});
+</code></pre>
+<pre><code class="language-java">Page&lt;OperationResponse&gt; page = payments.execute();
+
+for (OperationResponse operation : page.getRecords()) {
+	// handle a payment
+}
+
+page = page.getNextPage();
+</code></pre>
+</code-example>
+<h2 id="transacting-in-other-currencies"><a class="anchorShortcut" href="#transacting-in-other-currencies" aria-hidden="true"></a> Transacting in Other Currencies</h2>
+<p>One of the amazing things about the Payshares network is that you can send and receive many types of assets, such as US dollars, Nigerian naira, digital currencies like bitcoin, or even your own new kind of asset.</p>
+<p>While Payshares&#x2019;s native asset, the stakk, is fairly simple, all other assets can be thought of like a credit issued by a particular account. In fact, when you trade US dollars on the Payshares network, you don&#x2019;t actually trade US dollars&#x2014;you trade US dollars <em>from a particular account.</em> That&#x2019;s why the assets in the example above had both a <code>code</code> and an <code>issuer</code>. The <code>issuer</code> is the ID of the account that created the asset. Understanding what account issued the asset is important&#x2014;you need to trust that, if you want to redeem your dollars on the Payshares network for actual dollar bills, the issuer will be able to provide them to you. Because of this, you&#x2019;ll usually only want to trust major financial institutions for assets that represent national currencies.</p>
+<p>Payshares also supports payments sent as one type of asset and received as another. You can send Nigerian naira to a friend in Germany and have them receive euros. These multi-currency transactions are made possible by a built-in market mechanism where people can make offers to buy and sell different types of assets. Payshares will automatically find the best people to exchange currencies with in order to convert your naira to euros. This system is called <a href="../concepts/exchange.html">distributed exchange</a>.</p>
+<p>You can read more about the details of assets in the <a href="../concepts/assets.html">assets overview</a>.</p>
+<h2 id="what-next"><a class="anchorShortcut" href="#what-next" aria-hidden="true"></a> What Next?</h2>
+<p>Now that you can send and receive payments using Payshares&#x2019;s API, you&#x2019;re on your way to writing all kinds of amazing financial software. Experiment with other parts of the API, then read up on more detailed topics:</p>
+<ul>
+<li><a href="../anchor/">Become an anchor</a></li>
+<li><a href="../security.html">Security</a></li>
+<li><a href="../concepts/federation.html">Federation</a></li>
+<li><a href="../compliance-protocol.html">Compliance</a></li>
+</ul>
+<div class="sequence-navigation">
+  <a class="button button--previous" href="create-account.html">Back to Step 2: Create an Account</a>
+</div>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>A list of all the possible operations can be found on the <a href="../concepts/operations.html">operations page</a>. <a href="#fnref1" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>The full details on transactions can be found on the <a href="../concepts/transactions.html">transactions page</a>. <a href="#fnref2" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>The 100 stroops is called Payshares&#x2019;s <strong>base fee</strong>. The base fee can be changed, but a change in Payshares&#x2019;s fees isn&#x2019;t likely to happen more than once every several years. You can look up the current fees by <a href="/horizon/reference/endpoints/ledgers-single.html">checking the details of the latest ledger</a>. <a href="#fnref3" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Even though most responses from the Horizon REST API use JSON, most of the data in Payshares is actually stored in a format called XDR, or External Data Representation. XDR is both more compact than JSON and stores data in a predictable way, which makes signing and verifying an XDR-encoded message easier. You can get more details on <a href="/horizon/reference/xdr.html">our XDR page</a>. <a href="#fnref4" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>In situations where you need to perform a high number of transactions in a short period of time (for example, a bank might perform transactions on behalf of many customers using one Payshares account), you can create several Payshares accounts that work simultaneously. Read more about this in <a href="../channels.html">the guide to channels</a>. <a href="#fnref5" class="footnote-backref">&#x21A9;&#xFE0E;</a></p>
+</li>
+</ol>
+</section>
+
+      <br>
+      <a href="https://github.com/payshares/docs/blob/master/guides/get-started/transactions.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

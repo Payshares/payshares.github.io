@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Administration - Payshares Core | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Administration - Payshares Core | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item " href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item is-currentItem" href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Payshares Core</span>
+        <ul class="collapsibleListSet__list">
+                    <li class="pageNavList__item is-currentItem"><a href="/payshares-core/software/admin.html">Administration</a></li>
+  <li class="pageNavList__item"><a href="/payshares-core/software/commands.html">Commands</a></li>
+  <li class="pageNavList__item"><a href="/payshares-core/software/testnet.html">Testnet</a></li>
+          <li class="pageNavList__item"><a href="/payshares-core/software/core-data-flow.pdf">Core Data Flow</a></li>
+
+        </ul>
+      </li>
+    
+      <li class="pageNavList__item"><a href="https://github.com/payshares/payshares-go/tree/master/services/federation">Federation Server</a></li>
+      <li class="pageNavList__item"><a href="https://github.com/payshares/bridge-server">Bridge Server</a></li>
+      <li class="pageNavList__item"><a href="https://github.com/payshares/payshares-go/tree/master/tools/payshares-archivist">Archivist</a></li>
+      <li class="pageNavList__item"><a href="https://github.com/payshares/horizon">Horizon</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Administration
+      &#xA0;<span class="spu-color-neutral6">[Payshares Core]</span>
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <h2 id="purpose-of-this-document"><a class="anchorShortcut" href="#purpose-of-this-document" aria-hidden="true"></a> Purpose of this document</h2>
+<p>This document describes various aspects of running <code>payshares-core</code> for <strong>system administrators</strong> (but may be useful to a broader audience).</p>
+<h2 id="introduction"><a class="anchorShortcut" href="#introduction" aria-hidden="true"></a> Introduction</h2>
+<p>Payshares Core is responsible for communicating directly with and maintaining
+the Payshares peer-to-peer network. For a high-level introduction to Payshares Core, <a href="https://www.youtube.com/watch?v=pt_mm8S9_WU">watch this talk</a> on the architecture and ledger basics:</p>
+<figure><a href="https://www.youtube.com/watch?v=pt_mm8S9_WU"><img src="https://i.ytimg.com/vi/pt_mm8S9_WU/hqdefault.jpg" alt="Introduction to Payshares Core" title="Introduction to Payshares Core"></a></figure>
+<p>It will also be useful to understand how <a href="/payshares-core/software/core-data-flow.pdf">data flows</a> and is stored in payshares-core.</p>
+<h2 id="why-run-a-node"><a class="anchorShortcut" href="#why-run-a-node" aria-hidden="true"></a> Why run a node?</h2>
+<p>Run payshares-core if you want to:</p>
+<ul>
+<li>Obtain the most up-to-date and reliable data from the Payshares network</li>
+<li>Generate extended meta data on activity within the Payshares network (change tracking, etc)</li>
+<li>Submit transactions and their confirmations without depending on a third party</li>
+<li>Extended control on which parties to trust in the Payshares network</li>
+<li>Participate in validating the Payshares network</li>
+</ul>
+<h2 id="building"><a class="anchorShortcut" href="#building" aria-hidden="true"></a> Building</h2>
+<p>See <a href="https://github.com/payshares/payshares-core/blob/master/README.md">readme</a> for build instructions.
+We also provide a <a href="https://github.com/payshares/docker-payshares-core-horizon">docker container</a> for a potentially quicker set up than building from source.</p>
+<h2 id="package-based-installation"><a class="anchorShortcut" href="#package-based-installation" aria-hidden="true"></a> Package based Installation</h2>
+<p>If you are using Ubuntu 16.04 LTS we provide the latest stable releases of <a href="https://github.com/payshares/payshares-core">payshares-core</a> and <a href="https://github.com/payshares/go/tree/master/services/horizon">payshares-horizon</a> in Debian binary package format.</p>
+<p>See <a href="https://github.com/payshares/packages#sdf---packages">detailed installation instructions</a></p>
+<h2 id="configuring"><a class="anchorShortcut" href="#configuring" aria-hidden="true"></a> Configuring</h2>
+<p>All configuration for payshares-core is done with a TOML file. By default
+payshares-core loads</p>
+<p><code>./payshares-core.cfg</code></p>
+<p>, but you can specify a different file to load on the command line:</p>
+<p><code>$ payshares-core --conf betterfile.cfg</code></p>
+<p>The <a href="https://github.com/payshares/payshares-core/blob/master/docs/payshares-core_example.cfg">example config</a> describes all the possible
+configuration options.</p>
+<p>Here is an <a href="https://github.com/payshares/docker-payshares-core-horizon/blob/master/testnet/core/etc/payshares-core.cfg">example test network config</a> for connecting to the test network.</p>
+<p>Here is an <a href="https://github.com/payshares/docs/blob/master/other/payshares-core-validator-example.cfg">example public network config</a> for connecting to the public network.</p>
+<p>The examples in this file don&#x2019;t specify <code>--conf betterfile.cfg</code> for brevity.</p>
+<h2 id="running"><a class="anchorShortcut" href="#running" aria-hidden="true"></a> Running</h2>
+<p>Payshares-core can be run directly from the command line, or through a supervision
+system such as <code>init</code>, <code>upstart</code>, or <code>systemd</code>.</p>
+<p>Payshares-core sends logs to standard output and <code>payshares-core.log</code> by default,
+configurable as <code>LOG_FILE_PATH</code>.
+Log messages are classified by progressive <em>priority levels</em>:
+<code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> and <code>FATAL</code>.
+The logging system only emits those messages at or above its configured logging level.</p>
+<p>The log level can be controlled by configuration, by the <code>-ll</code> command-line flag
+or adjusted dynamically by administrative (HTTP) commands. Run:</p>
+<p><code>$ payshares-core -c &quot;ll?level=debug&quot;</code></p>
+<p>against a running system.
+Log levels can also be adjusted on a partition-by-partition basis through the
+administrative interface.
+For example the history system can be set to DEBUG-level logging by running:</p>
+<p><code>$ payshares-core -c &quot;ll?level=debug&amp;partition=history&quot;</code></p>
+<p>against a running system.
+The default log level is <code>INFO</code>, which is moderately verbose and should emit
+progress messages every few seconds under normal operation.</p>
+<p>Payshares-core can be gracefully exited at any time by delivering <code>SIGINT</code> or
+pressing <code>CTRL-C</code>. It can be safely, forcibly terminated with <code>SIGTERM</code> or
+<code>SIGKILL</code>. The latter may leave a stale lock file in the <code>BUCKET_DIR_PATH</code>,
+and you may need to remove the file before it will restart.
+Otherwise, all components are designed to recover from abrupt termination.</p>
+<p>Payshares-core can also be packaged in a container system such as Docker, so long
+as <code>BUCKET_DIR_PATH</code>, <code>TMP_DIR_PATH</code>, and the database are stored on persistent
+volumes. For an example, see <a href="https://github.com/payshares/docker-payshares-core-horizon">docker-payshares-core</a>.</p>
+<p>Note: <code>BUCKET_DIR_PATH</code> and <code>TMP_DIR_PATH</code> <em>must</em> reside on the same volume
+as payshares-core needs to rename files between the two.</p>
+<h2 id="administrative-commands"><a class="anchorShortcut" href="#administrative-commands" aria-hidden="true"></a> Administrative commands</h2>
+<p>While running, interaction with payshares-core is done via an administrative
+HTTP endpoint. Commands can be submitted using command-line HTTP tools such
+as <code>curl</code>, or by</p>
+<p><code>$ payshares-core -c &lt;command&gt;</code></p>
+<p>. The endpoint is not intended to be exposed to the public internet. It&#x2019;s typically accessed by administrators,
+or by a mid-tier application to submit transactions to the Payshares network.
+See <a href="./commands.html">commands</a> for a description of the available commands.</p>
+<h2 id="hardware-requirements"><a class="anchorShortcut" href="#hardware-requirements" aria-hidden="true"></a> Hardware requirements</h2>
+<p>The hardware requirements scale with the amount of activity in the network.
+Currently payshares-core requires very modest hardware. It would be fine to run
+on an AWS micro instance, for example.</p>
+<h1 id="configuration-choices"><a class="anchorShortcut" href="#configuration-choices" aria-hidden="true"></a> Configuration Choices</h1>
+<h2 id="level-of-participation-to-the-network"><a class="anchorShortcut" href="#level-of-participation-to-the-network" aria-hidden="true"></a> Level of participation to the network</h2>
+<p>As a node operator you can participate to the network in multiple ways.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>watcher</th>
+<th>archiver</th>
+<th>basic validator</th>
+<th>full validator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>non-validator</td>
+<td>all of watcher + publish to archive</td>
+<td>all of watcher + active participation in consensus (submit proposals for the transaction set to include in the next ledger)</td>
+<td>basic validator + publish to archive</td>
+</tr>
+<tr>
+<td>submits transactions</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>supports horizon</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>participates in consensus</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>helps other nodes to catch up and join the network</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>From an operational point of view &#x201C;watchers&#x201D; and &#x201C;basic validators&#x201D; are about the
+same (they both compute an up to date version of the ledger).
+&#x201C;Archivers&#x201D; or &#x201C;Full validators&#x201D; publish into an history archive which
+has additional cost.</p>
+<h2 id="validating"><a class="anchorShortcut" href="#validating" aria-hidden="true"></a> Validating</h2>
+<p>Nodes are considered <strong>validating</strong> if they take part in SCP and sign messages
+pledging that the network agreed to a particular transaction set. It isn&#x2019;t
+necessary to be a validator. Only set your node to validate if other nodes
+care about your validation.</p>
+<p>If you want to validate, you must generate a public/private key for your node.
+Nodes shouldn&#x2019;t share keys. You should carefully <em>secure your private key</em>.
+If it is compromised, someone can send false messages to the network and those
+messages will look like they came from you.</p>
+<p>Generate a key pair like this:</p>
+<p><code>$ payshares-core --genseed</code>
+the output will look like</p>
+<pre><code>Secret seed: SBAAOHEU4WSWX6GBZ3VOXEGQGWRBJ72ZN3B3MFAJZWXRYGDIWHQO37SY
+Public: GDMTUTQRCP6L3JQKX3OOKYIGZC6LG2O6K2BSUCI6WNGLL4XXCIB3OK2P
+</code></pre>
+<p>Place the seed in your config:</p>
+<p><code>NODE_SEED=&quot;SBAAOHEU4WSWX6GBZ3VOXEGQGWRBJ72ZN3B3MFAJZWXRYGDIWHQO37SY&quot;</code></p>
+<p>and set the following value in your config:</p>
+<p><code>NODE_IS_VALIDATOR=true</code></p>
+<p>Tell other people your public key (GDMTUTQ&#x2026; ) so people can add it to their <code>QUORUM_SET</code> in their config.
+If you don&#x2019;t include a <code>NODE_SEED</code> or set <code>NODE_IS_VALIDATOR=true</code>, you will still
+watch SCP and see all the data in the network but will not send validation messages.</p>
+<p>See a <a href="https://github.com/payshares/docs/blob/master/validators.md">list of other validators</a>.</p>
+<h2 id="database"><a class="anchorShortcut" href="#database" aria-hidden="true"></a> Database</h2>
+<p>Payshares-core stores the state of the ledger in a SQL database. This DB should
+either be a SQLite database or, for larger production instances, a separate
+PostgreSQL server. For how to specify the database,
+see <a href="https://github.com/payshares/payshares-core/blob/master/docs/payshares-core_example.cfg">example config</a>.</p>
+<p>When running payshares-core for the first time, you must initialize the database:</p>
+<p><code>$ payshares-core --newdb</code></p>
+<p>This command will initialize the database and then exit. You can also use this
+command if your DB gets corrupted and you want to restart it from scratch.</p>
+<h2 id="buckets"><a class="anchorShortcut" href="#buckets" aria-hidden="true"></a> Buckets</h2>
+<p>Payshares-core stores a duplicate copy of the ledger in the form of flat XDR files
+called &#x201C;buckets.&#x201D; These files are placed in a directory specified in the config
+file as <code>BUCKET_DIR_PATH</code>, which defaults to <code>buckets</code>. The bucket files are used
+for hashing and transmission of ledger differences to history archives. This
+directory must be on the same file system as the configured temporary
+directory <code>TMP_DIR_PATH</code>. For the most part, the contents of both directories
+can be ignored&#x2013;they are managed by payshares-core, but they should be stored on
+a fast local disk with sufficient space to store several times the size of the
+current ledger.</p>
+<h2 id="history-archives"><a class="anchorShortcut" href="#history-archives" aria-hidden="true"></a> History archives</h2>
+<p>Payshares-core normally interacts with one or more &#x201C;history archives,&#x201D; which are
+configurable facilities for storing and retrieving flat files containing history
+checkpoints: bucket files and history logs. History archives are usually off-site
+commodity storage services such as Amazon S3, Google Cloud Storage,
+Azure Blob Storage, or custom SCP/SFTP/HTTP servers.</p>
+<p>Use command templates in the config file to give the specifics of which
+services you will use and how to access them.
+The <a href="https://github.com/payshares/payshares-core/blob/master/docs/payshares-core_example.cfg">example config</a>
+shows how to configure a history archive through command templates.</p>
+<p>While it is possible to run a payshares-core node with no configured history
+archives, it will be <em>severely limited</em>, unable to participate fully in a
+network, and likely unable to acquire synchronization at all. At the very
+least, if you are joining an existing network in a read-only capacity, you
+will still need to configure a <code>get</code> command to access that network&#x2019;s history
+archives.</p>
+<h2 id="configuring-to-publish-to-an-archive"><a class="anchorShortcut" href="#configuring-to-publish-to-an-archive" aria-hidden="true"></a> Configuring to publish to an archive</h2>
+<p>Archive sections can also be configured with <code>put</code> and <code>mkdir</code> commands to
+cause the instance to publish to that archive.</p>
+<p>The very first time you want to use your archive, you need to initialize it with:
+<code>$ payshares-core --newhist &lt;historyarchive&gt;</code></p>
+<p>before starting your node.</p>
+<p>IMPORTANT:</p>
+<ul>
+<li>make sure that you configure both <code>put</code> and <code>mkdir</code> if <code>put</code> doesn&#x2019;t
+automatically create sub-folders</li>
+<li>writing to the same archive from different nodes is not supported and
+will result in undefined behavior, <em>potentially data loss</em>.</li>
+<li>do not run <code>newhist</code> on an existing archive unless you want to erase it</li>
+</ul>
+<h2 id="network-configuration"><a class="anchorShortcut" href="#network-configuration" aria-hidden="true"></a> Network configuration</h2>
+<p>The network itself has network wide settings that can be updated. This is done by validators voting for and agreeing to new values.</p>
+<p>A node can be configured to vote for upgrades using the <code>upgrades</code> endpoint . see <a href="commands.html"><code>commands.md</code></a> for more information.</p>
+<p>The network settings are:</p>
+<ul>
+<li>the version of the protocol used to process transactions</li>
+<li>the maximum number of transactions that can be included in a given ledger close</li>
+<li>the cost (fee) associated with processing operations</li>
+<li>the base reserve used to calculate the stakk balance needed to store things in the ledger</li>
+</ul>
+<p>When the network time is later than the <code>upgradetime</code> specified in
+the upgrade settings, the validator will vote to update the network
+to the value specified in the upgrade setting.</p>
+<p>When a validator is armed to change network values, the output of <code>info</code> will
+contain information about the vote.</p>
+<p>For a new value to be adopted, the same level of consensus between nodes needs
+to be reached as for transaction sets.</p>
+<h3 id="important-notes-on-network-wide-settings"><a class="anchorShortcut" href="#important-notes-on-network-wide-settings" aria-hidden="true"></a> Important notes on network wide settings</h3>
+<p>Changes to network wide settings have to be orchestrated properly between
+validators as well as non validating nodes:</p>
+<ul>
+<li>a change is vetted between operators (changes can be bundled)</li>
+<li>an effective date in the future is picked for the change to take effect (controlled by <code>upgradetime</code>)</li>
+<li>if applicable, communication is sent out to all network users</li>
+</ul>
+<p>An improper plan may cause issues such as:</p>
+<ul>
+<li>nodes missing consensus (aka &#x201C;getting stuck&#x201D;), and having to use history to rejoin</li>
+<li>network reconfiguration taking effect at a non deterministic time (causing fees to change ahead of schedule for example)</li>
+</ul>
+<p>For more information look at <a href="../versioning.html"><code>docs/versioning.md</code></a>.</p>
+<h1 id="quorum"><a class="anchorShortcut" href="#quorum" aria-hidden="true"></a> Quorum</h1>
+<h2 id="a-brief-explanation"><a class="anchorShortcut" href="#a-brief-explanation" aria-hidden="true"></a> A brief explanation</h2>
+<p>An important distinction in Payshares compared to traditional quorum based
+networks is that validators that form the network do not necessarily share
+the same configuration of what a quorum is.
+Quorum set represents the configuration of a specific node, where as quorum
+is derived from the set of all quorum sets from the participants.</p>
+<p>Here is a way to think about the distinction:
+Imagine a game where people are put in a room and the goal is to get as many
+people to match hat color.
+The rules are:</p>
+<ul>
+<li>each person in the room can only see the people in front of them.</li>
+<li>each person can pick their location in the room for the duration of the
+exercise (this basically defines the player&#x2019;s quorum set).</li>
+<li>when the game starts, light is turned on every minute for 1 second.</li>
+</ul>
+<p>SCP is the protocol (gestures, when to switch hat color, etc) that causes
+people in the room to converge to the same hat color.
+The quorum here is the set of players that end up with the winning hat color.</p>
+<p>A traditional quorum has people see everybody else (placed on a circle, at
+the right distance).
+Here, each player can decide to look wherever they want. Even look at only one
+other player, which is a risk if this other player decides to quit the game.</p>
+<h2 id="quorum-set"><a class="anchorShortcut" href="#quorum-set" aria-hidden="true"></a> Quorum set</h2>
+<p>Configuring your QUORUM_SET properly is one of the most important thing you should be doing.</p>
+<p>The simplest way to configure it is by using a flat QUORUM_SET, something that looks like this:</p>
+<pre><code>[QUORUM_SET]
+THRESHOLD_PERCENT=70
+VALIDATORS=[
+&quot;GDKXE2OZMJIPOSLNA6N6F2BVCI3O777I2OOC4BV7VOYUEHYX7RTRYA7Y sdf1&quot;,
+&quot;GCUCJTIYXSOXKBSNFGNFWW5MUQ54HKRPGJUTQFJ5RQXZXNOLNXYDHRAP sdf2&quot;,
+&quot;GC2V2EFSXN6SQTWVYA5EPJPBWWIMSD2XQNKUOHGEKB535AQE2I6IXV2Z sdf3&quot;,
+...
+]
+</code></pre>
+<p>THRESHOLD_PERCENT is simply the threshold of nodes that should agree with each other
+for your node to be convinced of something.</p>
+<h3 id="balancing-safety-and-liveness"><a class="anchorShortcut" href="#balancing-safety-and-liveness" aria-hidden="true"></a> Balancing safety and liveness</h3>
+<p>When configuring it, you want to balance safety and liveness:
+a threshold of 100% will obviously guarantee that your node will agree with all
+nodes in your quorum set at all time but if any of those nodes fails your
+node will be stuck until all nodes come back and agree.
+On the other hand, a threshold too low may cause the node to follow a broken minority.</p>
+<h3 id="threshold-percent-and-the-3f1-rule"><a class="anchorShortcut" href="#threshold-percent-and-the-3f1-rule" aria-hidden="true"></a> THRESHOLD_PERCENT and the &#x201C;3f+1 rule&#x201D;</h3>
+<p>One thing to keep in mind is that more validators doesn&#x2019;t translate
+necessarily to better resilience as the number of byzantine failures <code>f</code>
+is linked to the number of nodes <code>n</code> by <code>n&gt;=3f+1</code>.
+The implication is that a 4 nodes network can only handle one byzantine
+failure (f=1).
+If you add 2 nodes (bringing the network to 6 nodes), it can still only handle
+one failure (2 failures requires 7 nodes).</p>
+<h3 id="quorum-intersection"><a class="anchorShortcut" href="#quorum-intersection" aria-hidden="true"></a> Quorum intersection</h3>
+<p>As each quorum set refers to other nodes (that themselves have a quorum set
+configured), the overall network will reach consensus using this graph of
+nodes.
+Particular attention has to be made to ensure that the overall network has
+what is called &#x201C;quorum intersection&#x201D;:
+no two distinct sets of nodes should be allowed to agree to something
+different. It&#x2019;s similar to what happens on a network that is fully
+partitioned where for example, a DNS request could yield completely
+different results depending on which partition you&#x2019;re talking to.
+The easiest way to ensure that is that all nodes should have a large overlap
+in how they configured their quorum set. Just like having redundant paths
+between machines in a network increases the reliability of the network.
+Overlap here means that any two nodes that reference a set of nodes:</p>
+<ul>
+<li>have a large overlap of the nodes</li>
+<li>the threshold is such that there will always be some overlap between nodes
+regardless of which node fails</li>
+</ul>
+<p>For example, consider two nodes that respectively reference the sets Set1 and
+Set2 composed of some common nodes and some other nodes.</p>
+<ul>
+<li>Set1 = Common + extra1</li>
+<li>Set2 = Common + extra2</li>
+</ul>
+<p>Then if you want to ensure that when reaching consensus, each node has
+at least &#x201C;safety&#x201D; number of nodes in common.</p>
+<ul>
+<li>threshold1 &gt;= (size(extra1) + safety)/size(Set1)</li>
+<li>threshold2 &gt;= (size(extra2) + safety)/size(Set2)</li>
+</ul>
+<p>This can be expressed in percentage:</p>
+<ul>
+<li>safetyP = safety/common * 100</li>
+<li>commonP = common/sizeof(SetN) * 100</li>
+</ul>
+<p>threshold then should be greater or equal to</p>
+<ul>
+<li>100 - commonP + (safetyP*commonP)/100   or</li>
+<li>100 - (1 - safetyP/100)*commonP</li>
+</ul>
+<p>so if 80% of the nodes in the set are common, and you consider that seeing 60% of those is enough
+threshold should be set to 100 - 80 + 60*80/100 = 68</p>
+<h3 id="picking-validators"><a class="anchorShortcut" href="#picking-validators" aria-hidden="true"></a> Picking validators</h3>
+<p>You want to pick validators that are reliable:</p>
+<ul>
+<li>they are available (not crashed/down often)</li>
+<li>they follow the protocol (configured properly, not buggy, not malicious)</li>
+</ul>
+<p>You do not need to put a lot of nodes there, just the ones that you think
+are the most representative of the network. Of course, as you increase the
+number of validators in your quorum set (at constant threshold), your node
+will be more resilient to validator failures.</p>
+<p>A good starting point is to pick all validators from the network and
+remove over time the ones that are causing you problems.</p>
+<p>Other node operators may or may not chose the same validators than you, it&#x2019;s
+up to them! All you need is to have a good overlap across the population of
+validators.</p>
+<h3 id="typical-way-to-configure-quorum-set"><a class="anchorShortcut" href="#typical-way-to-configure-quorum-set" aria-hidden="true"></a> Typical way to configure QUORUM_SET</h3>
+<p>If you are running a single node, your best bet is to configure your QUORUM_SET
+organized such that the validators you consider &#x201C;stable&#x201D; are at the top of
+the list &#x201C;Stable&#x201D;, and other nodes that you are not ready yet to fully relly
+on, but that you are considering for your stable list under various &quot;Trial&quot;
+groups. Individual trial groups have the same weight than a single stable
+validator when configured as below.</p>
+<pre><code>[QUORUM_SET]
+THRESHOLD_PERCENT=70 # optional, the default is fine
+# &quot;Stable validators&quot; 
+VALIDATORS=[
+&quot;sdf1&quot;,
+&quot;sdf2&quot;,
+&quot;sdf3&quot;,
+...
+]
+# Nodes that are being considered for inclusion
+[QUORUM_SET.trial_group_1]
+THRESHOLD_PERCENT=51
+VALIDATORS=[
+&quot;someNewValidator1&quot;,
+&quot;someNewValidator2&quot;,
+&quot;someNewValidator3&quot;
+]
+[QUORUM_SET.trial_group_2]
+VALIDATORS=[
+&quot;someNewValidator4&quot;
+]
+</code></pre>
+<p>Be sure to not add too many &#x201C;trial&#x201D; groups at the top level:
+too many non reliable groups at the top level are a threat
+to liveness and may cause your node to get stuck.
+If you have too many top level &#x201C;trial&#x201D; groups, you may have to group &quot;trial&quot;
+groups into hierarchies of &#x201C;trial&#x201D; groups in order to keep the top level
+reliable.</p>
+<p>How many &#x201C;trial&#x201D; groups you can add depends on the level of risk you&#x2019;re
+willing to take:
+your &#x201C;stable&#x201D; group should represent a figure above the threshold that
+you picked (and the threshold should be 66% for the top level).</p>
+<p>Example:
+If you have 3 nodes in your &#x201C;stable&#x201D; list, you may have one node in your &#x201C;trial&#x201D; group
+but consider that in this case you cannot tolerate any failure from your &#x201C;stable&#x201D; set
+(as you would only have 2 nodes out of 4).
+Once you have 6 nodes in your &#x201C;stable&#x201D; list you can handle a failure of
+one of your &#x201C;stable&#x201D; list and one failure in the &#x201C;trial&#x201D; list.</p>
+<p>As you can see, in order to bootstrap a public network, you will need at least
+6 &#x201C;stable&#x201D; nodes in order to start vetting other nodes over time.</p>
+<h3 id="advanced-quorum-set-configuration"><a class="anchorShortcut" href="#advanced-quorum-set-configuration" aria-hidden="true"></a> Advanced QUORUM_SET configuration</h3>
+<p>A more advanced way to configure your QUORUM_SET is to group validators by
+entity type or organization.
+For example, you can imagine a QUORUM_SET that looks like</p>
+<pre><code>[t: 100,
+    [ t: 66, bank-1, bank-2, bank-3 ], # banks
+    [ t: 51, sdf, foundation-1, ...  ], # nonprofits
+    [ t: 51, univ-1, ... ], # universities
+    [ t: 51, friend-1, ... ] # friends
+]
+</code></pre>
+<p>or more exactly, as entities are represented by validators</p>
+<pre><code>[t: 100, # requires all entities to be present
+    [ t: 66, # super majority of banks
+       [t: 66, bank1-server1, bank1-server2, bank1-server3],
+       [t: 51, bank2-server1, bank2-server2],
+       [t: 100, bank3-server1]
+    ],
+    [ t: 51, # majority of nonprofits
+       [t: 51, sdf1, sdf2, sdf3],
+       [t: 51, foundation-1-server1, ...],
+       ...
+    ],
+    [ t: 51, # majority of universities
+        ...
+    ],
+    [ t: 51, # majority of friends
+        ...
+    ]
+]
+</code></pre>
+<p>This will configure the node to require one node of each category to reach consensus.</p>
+<h1 id="recipes"><a class="anchorShortcut" href="#recipes" aria-hidden="true"></a> Recipes</h1>
+<h2 id="joining-an-existing-network"><a class="anchorShortcut" href="#joining-an-existing-network" aria-hidden="true"></a> Joining an existing network</h2>
+<p>Put the network&#x2019;s <code>KNOWN_PEERS</code>, <code>QUORUM_SET</code>, and <code>HISTORY</code> details in a config file.
+Optionally: If you&#x2019;re going to be a validating node, generate key pair and
+set <code>NODE_SEED</code> to your seed, and <code>NODE_IS_VALIDATOR=true</code>.
+Optionally: Create an external database to use&#x2013;e.g., by using
+PostgreSQL&#x2019;s <code>createdb</code> command.
+Set the <code>DATABASE</code> config variable to your choice of database.</p>
+<p>Run:</p>
+<ol>
+<li><code>$ payshares-core --newdb</code></li>
+</ol>
+<ul>
+<li>if you need to initialize the database</li>
+</ul>
+<ol start="2">
+<li><code>$ payshares-core</code></li>
+</ol>
+<ul>
+<li>to start the node</li>
+</ul>
+<h2 id="starting-a-new-network"><a class="anchorShortcut" href="#starting-a-new-network" aria-hidden="true"></a> Starting a new network</h2>
+<p>Generate a keypair for each node, and set <code>NODE_SEED</code> and <code>NODE_IS_VALIDATOR=true</code>
+on each node of your new network.
+Set the <code>QUORUM_SET</code> and <code>KNOWN_PEERS</code> of each node to refer to one another.
+Decide on a history archive and add a HISTORY config entry for it on each node.
+Optionally: Create databases for each to use&#x2013;e.g., by using PostgreSQL&#x2019;s <code>createdb</code> command.
+Set the <code>DATABASE</code> config variables on each node to your choice of database.</p>
+<p>Run:</p>
+<ol>
+<li><code>$ payshares-core --newhist &lt;historyarchive&gt;</code></li>
+</ol>
+<ul>
+<li>to initialize every history archive you are putting to (be sure to not push to the same archive from different nodes).</li>
+</ul>
+<ol start="2">
+<li><code>$ payshares-core --newdb</code></li>
+</ol>
+<ul>
+<li>to initialize the database on each node.</li>
+</ul>
+<ol start="3">
+<li><code>$ payshares-core --forcescp</code></li>
+</ol>
+<ul>
+<li>to set a flag to force each node to start SCP immediatly rather than wait to hear from the network.</li>
+</ul>
+<ol start="4">
+<li><code>$ payshares-core</code></li>
+</ol>
+<ul>
+<li>on each node to start it.</li>
+</ul>
+<h2 id="upgrading-network-settings"><a class="anchorShortcut" href="#upgrading-network-settings" aria-hidden="true"></a> Upgrading network settings</h2>
+<p>Read the section on <a href="admin.html#network-configuration"><code>network-configuration</code></a> for process to follow.</p>
+<p>Example here is to upgrade the protocol version to version 9 on January-31-2018.</p>
+<ol>
+<li>
+<p><code>$ payshares-core -c &apos;upgrades?mode=set&amp;upgradetime=2018-01-31T20:00:00Z&amp;protocolversion=9&apos;</code></p>
+</li>
+<li>
+<p><code>$ payshares-core -c info</code>
+At this point <code>info</code> will tell you that the node is setup to vote for this upgrade:</p>
+</li>
+</ol>
+<pre><code>      &quot;status&quot; : [
+         &quot;Armed with network upgrades: upgradetime=2018-01-31T20:00:00Z, protocolversion=9&quot;
+      ]
+</code></pre>
+<h1 id="understanding-the-availability-and-health-of-your-instance"><a class="anchorShortcut" href="#understanding-the-availability-and-health-of-your-instance" aria-hidden="true"></a> Understanding the availability and health of your instance</h1>
+<h2 id="general-info"><a class="anchorShortcut" href="#general-info" aria-hidden="true"></a> General info</h2>
+<p>Run <code>$ payshares-core --c &apos;info&apos;</code>
+The output will look something like</p>
+<pre><code>   &quot;info&quot; : {
+      &quot;build&quot; : &quot;v0.2.3-9-g73147b7&quot;,
+      &quot;ledger&quot; : {
+         &quot;age&quot; : 6,
+         &quot;closeTime&quot; : 1446178539,
+         &quot;hash&quot; : &quot;f3c3424b85c004ebea1ae25991cf2ff902b46a5fea3bce1850c032118cd4567c&quot;,
+         &quot;num&quot; : 474367
+      },
+      &quot;network&quot; : &quot;Public Global Payshares Network ; September 2015&quot;,
+      &quot;numPeers&quot; : 12,
+      &quot;protocol_version&quot; : 1,
+      &quot;quorum&quot; : {
+         &quot;474366&quot; : {
+            &quot;agree&quot; : 5,
+            &quot;disagree&quot; : 0,
+            &quot;fail_at&quot; : 2,
+            &quot;hash&quot; : &quot;ac8c66&quot;,
+            &quot;missing&quot; : 0,
+            &quot;phase&quot; : &quot;EXTERNALIZE&quot;
+         }
+      },
+      &quot;state&quot; : &quot;Synced!&quot;
+</code></pre>
+<p>Key fields to watch for:</p>
+<ul>
+<li><code>state</code> : should be &#x201C;Synced!&#x201D;</li>
+<li><code>ledger age</code>: when was the last ledger closed, should be less than 10 seconds</li>
+<li><code>numPeers</code> : number of peers connected</li>
+<li><code>quorum</code> : summary of the quorum information for this node (see below)</li>
+</ul>
+<h2 id="quorum-health"><a class="anchorShortcut" href="#quorum-health" aria-hidden="true"></a> Quorum Health</h2>
+<p>Run <code>$ payshares-core --c &apos;quorum&apos;</code>
+The output looks something like</p>
+<pre><code>&quot;474313&quot; : {
+         &quot;agree&quot; : 6,
+         &quot;disagree&quot; : null,
+         &quot;fail_at&quot; : 2,
+         &quot;fail_with&quot; : [ &quot;lab1&quot;, &quot;lab2&quot; ],
+         &quot;hash&quot; : &quot;d1dacb&quot;,
+         &quot;missing&quot; : [ &quot;donovan&quot; ],
+         &quot;phase&quot; : &quot;EXTERNALIZE&quot;,
+         &quot;value&quot; : {
+            &quot;t&quot; : 5,
+            &quot;v&quot; : [ &quot;lab1&quot;, &quot;lab2&quot;, &quot;lab3&quot;, &quot;donovan&quot;, &quot;GDVFV&quot;, &quot;nelisky1&quot;, &quot;nelisky2&quot; ]
+         }
+</code></pre>
+<p>The key entries to watch are:</p>
+<ul>
+<li><code>value</code> : the quorum set used by this node.</li>
+<li><code>agree</code> : the number of nodes in the quorum set that agree with this instance.</li>
+<li><code>disagree</code>: the nodes that were participating but disagreed with this instance.</li>
+<li><code>missing</code> : the nodes that were missing during this consensus round.</li>
+<li><code>fail_at</code> : the number of failed nodes that would cause this instance to halt.</li>
+<li><code>fail_with</code>: an example of such failure.
+In the example above, 6 nodes are functioning properly, one is down (<code>donovan</code>), and
+the instance will fail if any two nodes out of the ones still working fail as well.</li>
+</ul>
+<p>Note that the node not being able to reach consensus does not mean that the network
+as a whole will not be able to reach consensus (and the opposite is true, the network
+may fail because of a different set of validators failing).</p>
+<p>You can get a sense of the quorum set health of a different node by doing
+<code>$ payshares-core --c &apos;quorum?node=$sdf1</code> or <code>$ payshares-core --c &apos;quorum?node=@GABCDE</code></p>
+<p>You can get a sense of the general health of the network by looking at the quorum set
+health of all nodes.</p>
+<h1 id="validator-maintenance"><a class="anchorShortcut" href="#validator-maintenance" aria-hidden="true"></a> Validator maintenance</h1>
+<p>Maintenance here refers to anything involving taking your validator temporarily out of
+the network (to apply security patches, system upgrade, etc).</p>
+<p>As an administrator of a validator, you must ensure that the maintenance you are
+about to take on a validator is safe for the overall network and for your validator.
+Safe means that the other validators that depend on yours will not be affected
+too much when you turn off your validator for maintenance and that your validator
+will continue to operate as part of the network when it comes back up.</p>
+<p>If you are changing some settings that may impact network wide settings, such as
+upgrading to a new version of payshares-core that supports a new version of the
+protocol or if you&#x2019;re updating other network wide settings such , review the
+section &#x201C;Important notes on network wide settings&#x201D;.</p>
+<p>We recommend performing the following steps in order (once per machine if you
+run multiple nodes).</p>
+<ol>
+<li>Advertise your intention to others that may depend on you. Some coordination
+is required to avoid situations where too many nodes go down at the same time.</li>
+<li>Dependencies should assess the health of their quorum, refer to the section
+&quot;Understanding quorum and reliability&quot;.</li>
+<li>If there is no objection, take your instance down</li>
+<li>When done, start your instance that should rejoin the network</li>
+<li>The instance will be completely caught up when it&#x2019;s both <code>Synced</code> and there
+is no backlog in uploading history.</li>
+</ol>
+<h1 id="notes"><a class="anchorShortcut" href="#notes" aria-hidden="true"></a> Notes</h1>
+<p>It can take up to 5 or 6 minutes to sync to the network when you start up. Most
+of this syncing time is simply payshares-core waiting for the next history
+checkpoint to be made in a history archive it is reading from.</p>
+<h2 id="additional-documentation"><a class="anchorShortcut" href="#additional-documentation" aria-hidden="true"></a> Additional documentation</h2>
+<p>This directory contains the following additional documentation:</p>
+<ul>
+<li>
+<p><a href="./testnet.html">testnet.md</a> is a short tutorial demonstrating how to
+configure and run a short-lived, isolated test network.</p>
+</li>
+<li>
+<p><a href="https://github.com/payshares/payshares-core/blob/master/docs/architecture.md">architecture.md</a>
+describes how payshares-core is structured internally, how it is intended to be
+deployed, and the collection of servers and services needed to get the full
+functionality and performance.</p>
+</li>
+</ul>
+
+      <br>
+      <a href="https://github.com/payshares/payshares-core/blob/master/docs/software/admin.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

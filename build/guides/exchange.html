@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Set Up an Exchange | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Set Up an Exchange | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item is-currentItem" href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item " href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Get Started</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/get-started/index.html">Payshares Network Overview</a></li>
+          <li class="pageNavList__item"><a href="/guides/get-started/create-account.html">Create an Account</a></li>
+  <li class="pageNavList__item"><a href="/guides/get-started/transactions.html">Send and Receive Money</a></li>
+
+        </ol>
+      </li>
+    
+
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Become an Anchor</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/anchor/index.html">Architecture</a></li>
+          <li class="pageNavList__item"><a href="/guides/anchor/2-bridge-server.html">Bridge Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/3-federation-server.html">Federation Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/4-compliance-server.html">Compliance Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/5-conclusion.html">Next Steps</a></li>
+
+        </ol>
+      </li>
+    
+      
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Concepts</span>
+        <ul class="collapsibleListSet__list">
+              <li class="pageNavList__item"><a href="/guides/concepts/accounts.html">Accounts</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/assets.html">Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/exchange.html">Distributed Exchange</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/federation.html">Federation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/fees.html">Fees</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/inflation.html">Inflation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/ledger.html">Ledger</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/list-of-operations.html">List of Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/multi-sig.html">Multisignature</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/operations.html">Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/scp.html">Payshares Consensus Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/stellar-toml.html">Payshares.toml</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/test-net.html">Testnet</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/transactions.html">Transactions</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/versioning.html">Versioning and Upgrading</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/xdr.html">XDR</a></li>
+
+        </ul>
+      </li>
+    
+        <li class="pageNavList__item"><a href="/guides/attachment.html">Payshares Attachment Convention</a></li>
+  <li class="pageNavList__item"><a href="/guides/channels.html">Channels</a></li>
+  <li class="pageNavList__item"><a href="/guides/compliance-protocol.html">Compliance Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/issuing-assets.html">Issuing Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/security.html">Security</a></li>
+  <li class="pageNavList__item"><a href="/guides/things-to-build.html">Build Payshares Apps</a></li>
+        <li class="pageNavList__item"><a href="/guides/contributing.html">Contribution Guide</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Set Up an Exchange
+      
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <h1 id="adding-payshares-to-your-exchange"><a class="anchorShortcut" href="#adding-payshares-to-your-exchange" aria-hidden="true"></a> Adding Payshares to your Exchange</h1>
+<p>This guide will walk you through the integration steps to add Payshares to your exchange. This example uses Node.js and the <a href="https://github.com/payshares/js-payshares-sdk">JS Payshares SDK</a>, but it should be easy to adapt to other languages.</p>
+<p>There are many ways to architect an exchange. This guide uses the following design:</p>
+<ul>
+<li><code>issuing account</code>: One Payshares account that holds the majority of customer deposits offline.</li>
+<li><code>base account</code>: One Payshares account that holds a small amount of customer deposits online and is used to payout to withdrawal requests.</li>
+<li><code>customerID</code>: Each user has a customerID, used to correlate incoming deposits with a particular user&#x2019;s account on the exchange.</li>
+</ul>
+<p>The two main integration points to Payshares for an exchange are:<br></p>
+<ol>
+<li>Listening for deposit transactions from the Payshares network<br></li>
+<li>Submitting withdrawal transactions to the Payshares network</li>
+</ol>
+<h2 id="setup"><a class="anchorShortcut" href="#setup" aria-hidden="true"></a> Setup</h2>
+<h3 id="operational"><a class="anchorShortcut" href="#operational" aria-hidden="true"></a> Operational</h3>
+<ul>
+<li><em>(optional)</em> Set up <a href="/payshares-core/software/admin.html">Payshares Core</a></li>
+<li><em>(optional)</em> Set up <a href="/horizon/reference/index.html">Horizon</a></li>
+</ul>
+<p>If your exchange doesn&#x2019;t see a lot of volume, you don&#x2019;t need to set up your own instances of Payshares Core and Horizon. Instead, use one of the <a href="http://Payshares.org">Payshares.org</a> public-facing Horizon servers.</p>
+<pre><code>  test net: {hostname:&apos;horizon-testnet.payshares.org&apos;, secure:true, port:443};
+  live: {hostname:&apos;horizon.payshares.org&apos;, secure:true, port:443};
+</code></pre>
+<h3 id="issuing-account"><a class="anchorShortcut" href="#issuing-account" aria-hidden="true"></a> Issuing account</h3>
+<p>An issuing account is typically used to keep the bulk of customer funds secure. An issuing account is a Payshares account whose secret keys are not on any device that touches the Internet. Transactions are manually initiated by a human and signed locally on the offline machine&#x2014;a local install of <code>js-payshares-sdk</code> creates a <code>tx_blob</code> containing the signed transaction. This <code>tx_blob</code> can be transported to a machine connected to the Internet via offline methods (e.g., USB or by hand). This design makes the issuing account secret key much harder to compromise.</p>
+<h3 id="base-account"><a class="anchorShortcut" href="#base-account" aria-hidden="true"></a> Base account</h3>
+<p>A base account contains a more limited amount of funds than an issuing account. A base account is a Payshares account used on a machine that is connected to the Internet. It handles the day-to-day sending and receiving of stakks. The limited amount of funds in a base account restricts loss in the event of a security breach.</p>
+<h3 id="database"><a class="anchorShortcut" href="#database" aria-hidden="true"></a> Database</h3>
+<ul>
+<li>Need to create a table for pending withdrawals, <code>PaysharesTransactions</code>.</li>
+<li>Need to create a table to hold the latest cursor position of the deposit stream, <code>PaysharesCursor</code>.</li>
+<li>Need to add a row to your users table that creates a unique <code>customerID</code> for each user.</li>
+<li>Need to populate the customerID row.</li>
+</ul>
+<pre><code>CREATE TABLE PaysharesTransactions (UserID INT, Destination varchar(56), XPSAmount INT, state varchar(8));
+CREATE TABLE PaysharesCursor (id INT, cursor varchar(50)); // id - AUTO_INCREMENT field
+</code></pre>
+<p>Possible values for <code>PaysharesTransactions.state</code> are &#x201C;pending&#x201D;, &#x201C;done&#x201D;, &#x201C;error&#x201D;.</p>
+<h3 id="code"><a class="anchorShortcut" href="#code" aria-hidden="true"></a> Code</h3>
+<p>Here is a code framework you can use to integrate Payshares into your exchange. The following sections describe each step.</p>
+<p>For this guide, we use placeholder functions for reading/writing to the exchange database. Each database library connects differently, so we abstract away those details.</p>
+<pre><code class="language-js">// Config your server
+var config = {};
+config.baseAccount = &quot;your base account address&quot;;
+config.baseAccountSecret = &quot;your base account secret key&quot;;
+
+// You can use Payshares.org&apos;s instance of Horizon or your own
+config.horizon = &apos;https://horizon-testnet.payshares.org&apos;;
+
+// Include the JS Payshares SDK
+// It provides a client-side interface to Horizon
+var PaysharesSdk = require(&apos;payshares-sdk&apos;);
+// uncomment for live network:
+// PaysharesSdk.Network.usePublicNetwork();
+
+// Initialize the Payshares SDK with the Horizon instance
+// You want to connect to
+var server = new PaysharesSdk.Server(config.horizon);
+
+// Get the latest cursor position
+var lastToken = latestFromDB(&quot;PaysharesCursor&quot;);
+
+// Listen for payments from where you last stopped
+// GET https://horizon-testnet.payshares.org/accounts/{config.baseAccount}/payments?cursor={last_token}
+let callBuilder = server.payments().forAccount(config.baseAccount);
+
+// If no cursor has been saved yet, don&apos;t add cursor parameter
+if (lastToken) {
+  callBuilder.cursor(lastToken);
+}
+
+callBuilder.stream({onmessage: handlePaymentResponse});
+
+// Load the account sequence number from Horizon and return the account
+// GET https://horizon-testnet.payshares.org/accounts/{config.baseAccount}
+server.loadAccount(config.baseAccount)
+  .then(function (account) {
+    submitPendingTransactions(account);
+  })
+</code></pre>
+<h2 id="listening-for-deposits"><a class="anchorShortcut" href="#listening-for-deposits" aria-hidden="true"></a> Listening for deposits</h2>
+<p>When a user wants to deposit stakks in your exchange, instruct them to send XPS to your base account address with the customerID in the memo field of the transaction.</p>
+<p>You must listen for payments to the base account and credit any user that sends XPS there. Here&#x2019;s code that listens for these payments:</p>
+<pre><code class="language-js">// Start listening for payments from where you last stopped
+var lastToken = latestFromDB(&quot;PaysharesCursor&quot;);
+
+// GET https://horizon-testnet.payshares.org/accounts/{config.baseAccount}/payments?cursor={last_token}
+let callBuilder = server.payments().forAccount(config.baseAccount);
+
+// If no cursor has been saved yet, don&apos;t add cursor parameter
+if (lastToken) {
+  callBuilder.cursor(lastToken);
+}
+
+callBuilder.stream({onmessage: handlePaymentResponse});
+</code></pre>
+<p>For every payment received by the base account, you must:<br>
+-check the memo field to determine which user sent the deposit.<br>
+-record the cursor in the <code>PaysharesCursor</code> table so you can resume payment processing where you left off.<br>
+-credit the user&#x2019;s account in the DB with the number of XPS they sent to deposit.</p>
+<p>So, you pass this function as the <code>onmessage</code> option when you stream payments:</p>
+<pre><code class="language-js">function handlePaymentResponse(record) {
+
+  // GET https://horizon-testnet.payshares.org/transaction/{id of transaction this payment is part of}
+  record.transaction()
+    .then(function(txn) {
+      var customer = txn.memo;
+
+      // If this isn&apos;t a payment to the baseAccount, skip
+      if (record.to != config.baseAccount) {
+        return;
+      }
+      if (record.asset_type != &apos;native&apos;) {
+         // If you are a XPS exchange and the customer sends
+         // you a non-native asset, some options for handling it are
+         // 1. Trade the asset to native and credit that amount
+         // 2. Send it back to the customer  
+      } else {
+        // Credit the customer in the memo field
+        if (checkExists(customer, &quot;ExchangeUsers&quot;)) {
+          // Update in an atomic transaction
+          db.transaction(function() {
+            // Store the amount the customer has paid you in your database
+            store([record.amount, customer], &quot;PaysharesDeposits&quot;);
+            // Store the cursor in your database
+            store(record.paging_token, &quot;PaysharesCursor&quot;);
+          });
+        } else {
+          // If customer cannot be found, you can raise an error,
+          // add them to your customers list and credit them,
+          // or do anything else appropriate to your needs
+          console.log(customer);
+        }
+      }
+    })
+    .catch(function(err) {
+      // Process error
+    });
+}
+</code></pre>
+<h2 id="submitting-withdrawals"><a class="anchorShortcut" href="#submitting-withdrawals" aria-hidden="true"></a> Submitting withdrawals</h2>
+<p>When a user requests a stakk withdrawal from your exchange, you must generate a Payshares transaction to send them the stakks. Here is additional documentation about <a href="/js-payshares-base/learn/building-transactions.html">Building Transactions</a>.</p>
+<p>The function <code>handleRequestWithdrawal</code> will queue up a transaction in the exchange&#x2019;s <code>PaysharesTransactions</code> table whenever a withdrawal is requested.</p>
+<pre><code class="language-js">function handleRequestWithdrawal(userID,amountStakks,destinationAddress) {
+  // Update in an atomic transaction
+  db.transaction(function() {
+    // Read the user&apos;s balance from the exchange&apos;s database
+    var userBalance = getBalance(&apos;userID&apos;);
+
+    // Check that user has the required stakks
+    if (amountStakks &lt;= userBalance) {
+      // Debit the user&apos;s internal stakk balance by the amount of stakks they are withdrawing
+      store([userID, userBalance - amountStakks], &quot;UserBalances&quot;);
+      // Save the transaction information in the PaysharesTransactions table
+      store([userID, destinationAddress, amountStakks, &quot;pending&quot;], &quot;PaysharesTransactions&quot;);
+    } else {
+      // If the user doesn&apos;t have enough XPS, you can alert them
+    }
+  });
+}
+</code></pre>
+<p>Then, you should run <code>submitPendingTransactions</code>, which will check <code>PaysharesTransactions</code> for pending transactions and submit them.</p>
+<pre><code class="language-js">PaysharesSdk.Network.useTestNetwork();
+// This is the function that handles submitting a single transaction
+
+function submitTransaction(exchangeAccount, destinationAddress, amountStakks) {
+  // Update transaction state to sending so it won&apos;t be
+  // resubmitted in case of the failure.
+  updateRecord(&apos;sending&apos;, &quot;PaysharesTransactions&quot;);
+
+  // Check to see if the destination address exists
+  // GET https://horizon-testnet.payshares.org/accounts/{destinationAddress}
+  server.loadAccount(destinationAddress)
+    // If so, continue by submitting a transaction to the destination
+    .then(function(account) {
+      var transaction = new PaysharesSdk.TransactionBuilder(exchangeAccount)
+        .addOperation(PaysharesSdk.Operation.payment({
+          destination: destinationAddress,
+          asset: PaysharesSdk.Asset.native(),
+          amount: amountStakks
+        }))
+        // Sign the transaction
+        .build();
+
+      transaction.sign(PaysharesSdk.Keypair.fromSecret(config.baseAccountSecret));
+
+      // POST https://horizon-testnet.payshares.org/transactions
+      return server.submitTransaction(transaction);
+    })
+    //But if the destination doesn&apos;t exist...
+    .catch(PaysharesSdk.NotFoundError, function(err) {
+      // create the account and fund it
+      var transaction = new PaysharesSdk.TransactionBuilder(exchangeAccount)
+        .addOperation(PaysharesSdk.Operation.createAccount({
+          destination: destinationAddress,
+          // Creating an account requires funding it with XPS
+          startingBalance: amountStakks
+        }))
+        .build();
+
+      transaction.sign(PaysharesSdk.Keypair.fromSecret(config.baseAccountSecret));
+
+      // POST https://horizon-testnet.payshares.org/transactions
+      return server.submitTransaction(transaction);
+    })
+    // Submit the transaction created in either case
+    .then(function(transactionResult) {
+      updateRecord(&apos;done&apos;, &quot;PaysharesTransactions&quot;);
+    })
+    .catch(function(err) {
+      // Catch errors, most likely with the network or your transaction
+      updateRecord(&apos;error&apos;, &quot;PaysharesTransactions&quot;);
+    });
+}
+
+// This function handles submitting all pending transactions, and calls the previous one
+// This function should be run in the background continuously
+
+function submitPendingTransactions(exchangeAccount) {
+  // See what transactions in the db are still pending
+  // Update in an atomic transaction
+  db.transaction(function() {
+    var pendingTransactions = querySQL(&quot;SELECT * FROM PaysharesTransactions WHERE state =`pending`&quot;);
+
+    while (pendingTransactions.length &gt; 0) {
+      var txn = pendingTransactions.pop();
+
+      // This function is async so it won&apos;t block. For simplicity we&apos;re using
+      // ES7 `await` keyword but you should create a &quot;promise waterfall&quot; so
+      // `setTimeout` line below is executed after all transactions are submitted.
+      // If you won&apos;t do it will be possible to send a transaction twice or more.
+      await submitTransaction(exchangeAccount, tx.destinationAddress, tx.amountStakks);
+    }
+
+    // Wait 30 seconds and process next batch of transactions.
+    setTimeout(function() {
+      submitPendingTransactions(sourceAccount);
+    }, 30*1000);
+  });
+}
+</code></pre>
+<h2 id="going-further"><a class="anchorShortcut" href="#going-further" aria-hidden="true"></a> Going further&#x2026;</h2>
+<h3 id="federation"><a class="anchorShortcut" href="#federation" aria-hidden="true"></a> Federation</h3>
+<p>The federation protocol allows you to give your users easy addresses&#x2014;e.g., bob*<a href="http://yourexchange.com">yourexchange.com</a>&#x2014;rather than cumbersome raw addresses such as: GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ?19327</p>
+<p>For more information, check out the <a href="./concepts/federation.html">federation guide</a>.</p>
+<h3 id="anchor"><a class="anchorShortcut" href="#anchor" aria-hidden="true"></a> Anchor</h3>
+<p>If you&#x2019;re an exchange, it&#x2019;s easy to become a Payshares anchor as well. The integration points are very similar, with the same level of difficulty. Becoming a anchor could potentially expand your business.</p>
+<p>To learn more about what it means to be an anchor, see the <a href="./anchor.html">anchor guide</a>.</p>
+
+      <br>
+      <a href="https://github.com/payshares/docs/blob/master/guides/exchange.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>

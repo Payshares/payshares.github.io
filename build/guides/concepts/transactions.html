@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--
+
+  Want to contribute to this site? Take a look at the GitHub repository for this
+  site: https://github.com/payshares/developers
+
+  -->
+  <title>Transactions | Payshares Developers</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="author" content="Payshares.org and contributors">
+
+  <meta property="og:title" content="Transactions | Payshares Developers">
+  <meta property="og:type" content="website">
+
+
+  <link rel="stylesheet" href="/styles/index-642cd6cc68250700f4daa5029026a066.css">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/rocket-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/rocket-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/rocket-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon/rocket-96x96.png" sizes="96x96">
+  <meta name="msapplication-TileImage" content="/images/favicon/rocket-144x144.png">
+
+  <script type="text/javascript">
+    var $mcGoal = {'settings':{'uuid':'c001d97369b7a10d224c23867','dc':'us9'}};
+    (function() {
+      var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+      sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+    })();
+  </script>
+
+  <script>window.clientData = {};</script>
+
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+</head>
+<body>
+<div class="header2016">
+  <div class="header2016__logo header2016__logo--spaced">
+    <div class="so-siteHeader">
+      <span class="so-logo">
+  <a href="https://www.payshares.org/" class="so-logo__main">Payshares</a><!--
+  --><span class="so-logo__separator"> </span><!--
+  --><a href="/" class="so-logo__subSite">developers</a>
+</span>
+    </div>
+  </div>
+  <nav class="header2016__nav mainNavMenu spu-padStart-30">
+    <a class="mainNavMenu__item is-currentItem" href="/guides/">Guides</a>
+<a class="mainNavMenu__item " href="/reference/">API Reference</a>
+<a class="mainNavMenu__item " href="/software/">Software</a>
+<a class="mainNavMenu__item " href="/tools/">Tools</a>
+  </nav>
+</div>
+
+<div class="S-flex-row">
+  <div class="siteSidebar pageNavListBounder">
+  <div class="mainSidebar">
+    <ul class="pageNavList">
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Get Started</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/get-started/index.html">Payshares Network Overview</a></li>
+          <li class="pageNavList__item"><a href="/guides/get-started/create-account.html">Create an Account</a></li>
+  <li class="pageNavList__item"><a href="/guides/get-started/transactions.html">Send and Receive Money</a></li>
+
+        </ol>
+      </li>
+    
+
+
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Become an Anchor</span>
+        <ol class="collapsibleListSet__list">
+                    <li class="pageNavList__item"><a href="/guides/anchor/index.html">Architecture</a></li>
+          <li class="pageNavList__item"><a href="/guides/anchor/2-bridge-server.html">Bridge Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/3-federation-server.html">Federation Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/4-compliance-server.html">Compliance Server</a></li>
+  <li class="pageNavList__item"><a href="/guides/anchor/5-conclusion.html">Next Steps</a></li>
+
+        </ol>
+      </li>
+    
+      
+      <li class="pageNavList__subList">
+        <span class="pageNavList__title">Concepts</span>
+        <ul class="collapsibleListSet__list">
+              <li class="pageNavList__item"><a href="/guides/concepts/accounts.html">Accounts</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/assets.html">Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/exchange.html">Distributed Exchange</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/federation.html">Federation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/fees.html">Fees</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/inflation.html">Inflation</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/ledger.html">Ledger</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/list-of-operations.html">List of Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/multi-sig.html">Multisignature</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/operations.html">Operations</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/scp.html">Payshares Consensus Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/stellar-toml.html">Payshares.toml</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/test-net.html">Testnet</a></li>
+  <li class="pageNavList__item is-currentItem"><a href="/guides/concepts/transactions.html">Transactions</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/versioning.html">Versioning and Upgrading</a></li>
+  <li class="pageNavList__item"><a href="/guides/concepts/xdr.html">XDR</a></li>
+
+        </ul>
+      </li>
+    
+        <li class="pageNavList__item"><a href="/guides/attachment.html">Payshares Attachment Convention</a></li>
+  <li class="pageNavList__item"><a href="/guides/channels.html">Channels</a></li>
+  <li class="pageNavList__item"><a href="/guides/compliance-protocol.html">Compliance Protocol</a></li>
+  <li class="pageNavList__item"><a href="/guides/issuing-assets.html">Issuing Assets</a></li>
+  <li class="pageNavList__item"><a href="/guides/security.html">Security</a></li>
+  <li class="pageNavList__item"><a href="/guides/things-to-build.html">Build Payshares Apps</a></li>
+        <li class="pageNavList__item"><a href="/guides/contributing.html">Contribution Guide</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="S-flexItem-share">
+  <div class="spu-padSE-30">
+    <h1 class="mainSectionTitle">
+      Transactions
+      
+    </h1>
+  </div>
+  <div class="S-flex-rowWrap spu-borderTop-1 spu-borderColor-neutral7">
+    <s-read-md class="S-flexItem-share mainContent s-read-md--capped spu-padSE-30 spu-padTB-20 documentRead" link-process-md>
+      <p>Transactions are commands that modify the ledger state. Among other things, Transactions are used to send payments, enter
+orders into the <a href="./exchange.html">distributed exchange</a>, change settings on accounts, and authorize another account to hold
+your currency. If you think of the ledger as a database, then transactions are SQL commands.</p>
+<p>Each transaction has the following attributes:</p>
+<blockquote>
+<h4 id="source-account"><a class="anchorShortcut" href="#source-account" aria-hidden="true"></a> Source account</h4>
+<p>This is the account that originates the transaction. The transaction must be signed by this account, and the transaction fee must be paid by this account. The sequence number of this transaction is based off this account.</p>
+<h4 id="fee"><a class="anchorShortcut" href="#fee" aria-hidden="true"></a> Fee</h4>
+<p>Each transaction sets a <a href="./fees.html#transaction-fee">fee</a> that is paid by the source account. If this fee is below the network minimum the transaction will fail. The more operations in the transaction, the greater the required fee.</p>
+<h4 id="sequence-number"><a class="anchorShortcut" href="#sequence-number" aria-hidden="true"></a> Sequence number</h4>
+<p>Each transaction has a sequence number. Transactions follow a strict ordering rule when it comes to processing of transactions per account. For the transaction to be valid, the sequence number must be 1 greater than the sequence number stored in the source <a href="./accounts.html">account entry</a> when the transaction is applied. After the transaction is applied, the source account&#x2019;s stored sequence number is incremented by 1. If the sequence number on the account is 4, then the incoming transaction should have a sequence number of 5. After the transaction is applied, the sequence number on the account is bumped to 5.</p>
+<p>Note that if several transactions with the same source account make it into the same transaction set, they are ordered and applied according to sequence number. For example, if 3 transactions are submitted and the account is at sequence number 5, the transactions must have sequence numbers 6, 7, and 8.</p>
+<h4 id="list-of-operations"><a class="anchorShortcut" href="#list-of-operations" aria-hidden="true"></a> List of operations</h4>
+<p>Transactions contain an arbitrary list of <a href="./operations.html">operations</a> inside them. Typically there is just one operation, but it&#x2019;s possible to have multiple.  Operations are executed in order as one ACID transaction, meaning that either all operations are applied or none are.  If any operation fails, the whole transaction fails. If operations are on accounts other than the source account, then they require signatures of the accounts in question.</p>
+<h4 id="list-of-signatures"><a class="anchorShortcut" href="#list-of-signatures" aria-hidden="true"></a> List of signatures</h4>
+<p>Up to 20 signatures can be attached to a transaction. See <a href="./multi-sig.html">Multi-sig</a> for more information. A transaction is considered invalid if it includes signatures that aren&#x2019;t needed to authorize the transaction&#x2014;superfluous signatures aren&#x2019;t allowed.</p>
+<h4 id="memo"><a class="anchorShortcut" href="#memo" aria-hidden="true"></a> Memo</h4>
+<p><em>optional</em> The memo contains optional extra information. It is the responsibility of the client to interpret this value. Memos can be one of the following types:</p>
+<ul>
+<li><code>MEMO_TEXT</code> : A string encoded using either ASCII or UTF-8, up to 28-bytes long.</li>
+<li><code>MEMO_ID</code> :  A 64 bit unsigned integer.</li>
+<li><code>MEMO_HASH</code> : A 32 byte hash.</li>
+<li><code>MEMO_RETURN</code> : A 32 byte hash intended to be interpreted as the hash of the transaction the sender is refunding.</li>
+</ul>
+<h4 id="time-bounds"><a class="anchorShortcut" href="#time-bounds" aria-hidden="true"></a> Time bounds</h4>
+<p><em>optional</em> The UNIX timestamp, determined by ledger time, of a lower and upper bound of when this transaction will be valid. If a transaction is submitted too early or too late, it will fail to make it into the transaction set. <code>maxTime</code> equal <code>0</code> means that it&#x2019;s not set.</p>
+</blockquote>
+<h2 id="transaction-sets"><a class="anchorShortcut" href="#transaction-sets" aria-hidden="true"></a> Transaction sets</h2>
+<p>Between ledger closings, all the nodes in the network are collecting transactions. When it is time to close the next ledger, the nodes collect these transactions into a transaction set. SCP is run by the network to reach agreement on which transaction set to apply to the last ledger.</p>
+<h2 id="life-cycle"><a class="anchorShortcut" href="#life-cycle" aria-hidden="true"></a> Life cycle</h2>
+<ol>
+<li>
+<p><strong>Creation</strong>: The user creates a transaction, fills out all the fields, gives it the correct sequence number, adds whatever operations it wants, etc. Try it with <a href="/js-payshares-sdk/learn/">js-payshares-sdk</a>.</p>
+</li>
+<li>
+<p><strong>Signing</strong>: Once the transaction is filled out, all the needed signatures must be collected and added to the transaction envelope. Commonly it&#x2019;s just the signature of the account doing the transaction, but more complicated setups can require collecting signatures from multiple parties. See <a href="./multi-sig.html">multi-sig</a>.</p>
+</li>
+<li>
+<p><strong>Submitting</strong>: After signing, the transaction should be valid and can now be submitted to the Payshares network. Transactions are typically submitted using <a href="/horizon/reference/transactions-create.html">horizon</a>, but you can also submit the transaction directly to an instance of <a href="https://github.com/payshares/payshares-core">payshares-core</a>.</p>
+</li>
+<li>
+<p><strong>Propagating</strong>: Once payshares-core receives a transaction, either given to it by a user or another payshares-core, it does preliminary checks to see if the transaction is valid. Among other checks, it makes sure that the transaction is correctly formed and the source account has enough to cover the transaction fee. Payshares-core doesn&#x2019;t check things that require inspecting the state of the ledger beyond looking up the source account&#x2014;e.g., that the destination account to which the transaction is trying to send exists, that the account has enough of this asset to sell, that it&#x2019;s a valid path.
+If the preliminary checks pass, then payshares-core propagates the transaction to all the other servers to which it&#x2019;s connected. In this way, a valid transaction is flooded to the whole Payshares network.</p>
+</li>
+<li>
+<p><strong>Including in a transaction set</strong>: When it&#x2019;s time to close the ledger, payshares-core takes all the transactions it has heard about since last ledger close and collects them into a transaction set. If it hears about any incoming transactions now, it puts them aside for next ledger close.
+Payshares-core nominates the transaction set it has collected. SCP resolves the differences between the various transaction sets proposed and decides on the one transaction set that the network will apply.</p>
+</li>
+<li>
+<p><strong>Application</strong>: Once SCP agrees on a particular transaction set, that set is applied to the ledger. At this point, a fee is taken from the source account for every transaction in that set. Operations are attempted in the order they occur in the transaction. If any operation fails, the whole transaction fails, and the effects of previous operations in that transaction are rolled back. After all the transactions in the set are applied, a new ledger is created and the process starts over.</p>
+</li>
+</ol>
+
+      <br>
+      <a href="https://github.com/payshares/docs/blob/master/guides/concepts/transactions.md" class="spu-color-neutral6">Edit this doc in GitHub</a>
+    </s-read-md>
+  
+  </div>
+</div>
+</div>
+
+<div class="so-back spu-borderTop-1 spu-borderColor-neutral7 spu-padTB-15">
+  <div class="so-chunk">
+    <div class="siteFooter">
+      <div class="siteFooter__list">
+        <a class="siteFooter__list__item" href="https://www.payshares.org/"><span class="graphic-backArrow-9"></span>&#xA0;&#xA0;Payshares.org</a>
+        <span class="siteFooter__list__sep">|</span>
+        <a class="siteFooter__list__item" href="https://www.payshares.org/bug-bounty-program/">Bug Bounty</a>
+        <a class="siteFooter__list__item" href="/payshares-core/software/admin.html">Run a node</a>
+        <a class="siteFooter__list__item" href="/guides/things-to-build.html">Build an app</a>
+        <a class="siteFooter__list__item" href="https://github.com/payshares/">GitHub</a>
+        <a class="siteFooter__list__item" href="http://slack.payshares.org/">Community chat</a>
+      </div>
+      <div class="siteFooter__list siteFooter__list--aux">
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/terms-of-service/">Terms of service</a>
+        <a class="siteFooter__list__item siteFooter__list__item--aux" href="https://www.payshares.org/privacy-policy/">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/js/app-29e9eab4c89c33d7fb1e0705ca62d0cc.js"></script>
+<script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("U8cLXTFMPm");
+analytics.page()
+}}();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5V3WNNP');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V3WNNP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+</html>
