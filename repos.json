@@ -18,8 +18,8 @@
     "githubURL": "https://github.com/payshares/js-payshares-sdk",
     "projectTitle": "JS Payshares SDK"
   },
-  "go" : {
-    "githubURL": "https://github.com/payshares/go",
+  "payshares-go" : {
+    "githubURL": "https://github.com/payshares/payshares-go",
     "projectTitle": "Go SDK"
   },
   "horizon" : {
